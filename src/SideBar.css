@@ -1,0 +1,43 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 90%;
+  margin-top: 42%;
+  width: 100%;
+  justify-content: space-around;
+}
+.Sidebutton{
+  width: 90%;
+  background-color: rgb(226, 226, 226);
+  border: black solid 2px;
+  margin: auto;
+  height: 5%;
+  text-align: center;
+  color: black;
+  font-size: 25px;
+  border-bottom: 5px black solid;
+}
+.Sidebutton:hover{
+  background-color: rgb(207, 207, 207) ;
+}
+@keyframes button-tilt {
+  from {
+    transform: rotate(-5deg);
+    transform: scale(1.2);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .carText {
+    animation: button-tilt infinite 0.75s linear alternate-reverse;
+  }
+}
