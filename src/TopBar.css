@@ -33,6 +33,22 @@
 }
 .icons{
   flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 2.5%;
+}
+.icons img:first-child{
+  height: 60%;
+}
+.icons p{
+  flex: 2;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: right;
+}
+.icons img:last-child{
+  height: 70%;
 }
 .menuButtonImg:hover{
   background-color: rgba(255,255,255,0.3);

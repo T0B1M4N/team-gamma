@@ -40,7 +40,7 @@ function Products() {
           currentDiscount.className = "discount";
           textdiv.append(currentText);
           textdiv.append(currentDiscount);
-          textdiv.append(discountImg)
+          textdiv.append(discountImg);
           textdiv.append(currentPrice);
           itemDiv.append(imgdiv);
           itemDiv.append(textdiv);

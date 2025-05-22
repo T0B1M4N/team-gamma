@@ -5,7 +5,7 @@
 }
 
 .item{
-  width: 19%;
+  width: 200px;
   height: 35vh;
   border-radius: 20px;
   color: black;
@@ -34,8 +34,8 @@
 }
 .imagediv{
   margin: auto;
-  width: 200px;
-  height: 200px; /* Makes it square */
+  width: 180px;
+  height: 180px; /* Makes it square */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,9 +63,9 @@
 .price{
   text-align: center;
   font-weight: 700;
-  text-indent: 150px;
+  text-indent: 100px;
   height: 0px;
-  margin-top: 0px;
+  margin-top: 25%;
 }
 .discount{
   transform: rotate(5deg);
@@ -75,9 +75,9 @@
   height: 0px;
   color: white;
   text-shadow: 0px 0px 5px black;
-  position: relative;
-  top: 25px;
-  right: 43px;
+  position: absolute;
+  top: 42%;
+  right: 53%;
   z-index: 4;
   margin-top: 0px;
 }
@@ -88,8 +88,8 @@
   z-index: 3;
   object-fit: cover;
   position: absolute;
-  top: 50px;
-  right: 70px;
+  top: 37%;
+  right: 50%;
 }
 
 .pages{
