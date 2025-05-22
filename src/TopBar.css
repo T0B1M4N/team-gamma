@@ -8,7 +8,31 @@
   flex: 1;
 }
 .menuButtonImg{
-  width: 20%;
+  width: 30%;
+}
+.searchbar{
+  flex: 2;
+  height: 50%;
+  padding-top: 1.5%;
+  display: flex;
+  align-items: center;
+}
+.searchIcon{
+  width: 50px;
+  height: 50px;
+}
+.searchbox{
+  height: 75%;
+  width: 75%;
+  background-color: white;
+  border-radius: 15px;
+  color: black;
+  text-indent: 20px;
+  border: 0;
+  box-shadow: 0px 0px 5px black;
+}
+.icons{
+  flex: 1;
 }
 .menuButtonImg:hover{
   background-color: rgba(255,255,255,0.3);
@@ -16,7 +40,9 @@
 .Name{
   flex: 1;
   font-size: 40px;
-  margin: auto;
+  margin:auto;
+  font-weight: 700;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 @keyframes button-tilt {
   from {

@@ -68,19 +68,27 @@ button:focus-visible {
   position: fixed;
   height: 10vh;
   width: 100%;
-  background-color: rgb(88, 88, 88);
+  background-color: rgb(233, 233, 233);
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-around;
-  box-shadow: 0px 0px 20px black;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+  color: black;
   z-index: 20;
 }
 .SideBar{
-  width: 25%;
+  width: 15%;
   height: 100vh;
   position: fixed;
-  background-color: rgb(189, 189, 189);
-  box-shadow: 0px 0px 10px black;
+  background: linear-gradient(0deg, rgb(180,180,255)0% , rgb(255,180,180))100% ;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   z-index: 19;
+}
+.products{
+  width: 85%;
+  height: 330vh;
+  padding-top: 15vh;
+  margin-left: 15%;
+  background-color: white;
 }
