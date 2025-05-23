@@ -6,15 +6,15 @@ function SideBar() {
     <>
        <div className="main">
         <div className="top">
-          <div className="Sidebutton">1</div>
+          <div className="Sidebutton">New</div>
           <div className="line"></div>
-          <div className="Sidebutton">2</div>
+          <div className="Sidebutton">Trending</div>
           <div className="line"></div>
-          <div className="Sidebutton">3</div>
+          <div className="Sidebutton">Fashion</div>
           <div className="line"></div>
-          <div className="Sidebutton">4</div>
+          <div className="Sidebutton">kys</div>
           <div className="line"></div>
-          <div className="Sidebutton">5</div>
+          <div className="Sidebutton">sybau</div>
           <div className="line"></div>
         </div>
         <div className="bottom"></div>
