@@ -69,14 +69,6 @@
   height: 50%;
   padding: 20px;
 }
-.icons a{
-  height: 100%;
-  width: 100%;
-}
-.icons a img{
-  height: 50%;
-  padding: 20px;
-}
 .menuButtonImg:hover{
   background-color: rgba(0,0,0,0.1);
 }
