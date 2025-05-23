@@ -8,17 +8,26 @@ import menu from "../images/menu.png"
 import searchicon from "../images/search-icon.png"
 
 function App() {
+  const products = document.getElementById("ProductDiv")
+  const cartdiv = document.getElementById("cartDiv")
   return(
     <>    
         <div className="mobileDevider">
           <div className="topTB">
-            <div className="menuButton"><img src={menu} alt="" className='menuButtonImg' /></div>
+            <div className="menuButton"><img src={menu} alt="" className='menuButtonImg' 
+            onClick={() => {
+                   products.className = "products";
+                    cartdiv.className = "cart";
+                  }}
+                  />
+                  </div>
             <div className="Name">Store Name</div>
             <div className="searchbar"><img className='searchIcon' src={searchicon}/><input type="search" className='searchbox' /></div>
             <div className="icons">
-              <a href="../cart.html">
-                <img src={cart} alt="" />
-              </a>
+                <img src={cart} alt="" onClick={() => {
+                   products.className = "products2";
+                  cartdiv.className = "cart2";
+                  }}/>
               <p>UserProfile</p>
               <img src={User} alt="" />
             </div>

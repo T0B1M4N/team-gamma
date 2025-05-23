@@ -5,10 +5,17 @@ import TopBar from './TopBar.jsx'
 import SideBar from './SideBar.jsx'
 import Products from './products.jsx'
 import BottomBar from "./BottomBar.jsx"
+import Cart from "./cart.jsx"
 
 createRoot(document.getElementById('TopBar')).render(
   <StrictMode>
     <TopBar />
+  </StrictMode>,
+)
+
+createRoot(document.getElementById('cartDiv')).render(
+  <StrictMode>
+    <Cart />
   </StrictMode>,
 )
 

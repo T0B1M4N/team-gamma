@@ -92,6 +92,34 @@ button:focus-visible {
   background-attachment: fixed;
   background-color: white;
 }
+.cart{
+  height: 0vh;
+}
+.cart2{
+  height: 100vh;
+  background-color: red;
+  width: 100%;
+}
+.products2{
+  width: 85%;
+  height: 0vh;
+  padding-top: 0px;
+  margin-left: 15%;
+  background:linear-gradient(rgba(255,190,200,0.3) 0%,rgb(255, 255, 255) 100%);
+  background-size:0px;
+  background-attachment: fixed;
+  background-color: white;
+}
+.products2 div{
+  height: 0px;
+  width: 0px;
+}
+.products2 div div div{
+  font-size: 0px;
+}
+.products2 div div{
+  font-size: 0px;
+}
 .BottomBar{
   position: fixed;
   bottom: 0px;
