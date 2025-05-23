@@ -106,7 +106,7 @@ button:focus-visible {
   padding-top: 0px;
   margin-left: 15%;
   background:linear-gradient(rgba(255,190,200,0.3) 0%,rgb(255, 255, 255) 100%);
-  background-size:cover;
+  background-size:0px;
   background-attachment: fixed;
   background-color: white;
 }

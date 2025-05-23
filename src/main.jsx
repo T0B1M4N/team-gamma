@@ -19,6 +19,12 @@ createRoot(document.getElementById('TopBar')).render(
   </StrictMode>,
 )
 
+createRoot(document.getElementById('cartDiv')).render(
+  <StrictMode>
+    <cart />
+  </StrictMode>,
+)
+
 createRoot(document.getElementById('SideBarDiv')).render(
   <StrictMode>
     <SideBar />
