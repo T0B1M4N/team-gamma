@@ -16,7 +16,9 @@ function App() {
             <div className="Name">Store Name</div>
             <div className="searchbar"><img className='searchIcon' src={searchicon}/><input type="search" className='searchbox' /></div>
             <div className="icons">
-              <img src={cart} alt="" />
+              <a href="../cart.html">
+                <img src={cart} alt="" />
+              </a>
               <p>UserProfile</p>
               <img src={User} alt="" />
             </div>

@@ -52,6 +52,7 @@ function Products() {
         const response = await fetch("https://dummyjson.com/products?limit=50");
         const alldata = await response.json();
         const data = alldata.products
+        console.log(data);
 
         for (let i = 0; i < productNum; i++) {
           let currentName = data[i].title;

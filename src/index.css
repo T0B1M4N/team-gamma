@@ -85,7 +85,7 @@ button:focus-visible {
 .products{
   width: 85%;
   max-height: 2000vh;
-  padding-top: 15vh;
+  padding-top: 150px;
   margin-left: 15%;
   background:linear-gradient(rgba(255,190,200,0.3) 0%,rgb(255,255,255) 100%);
   background-size:cover;
@@ -116,7 +116,7 @@ button:focus-visible {
     margin-left: 0%;
   }
   .BottomBar{
-    height: 10vh;
+    height: 100px;
   }
   .TopBar{
     height: 150px;
