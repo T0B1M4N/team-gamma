@@ -1,0 +1,44 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.iconsBB{
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+.iconsBB div{
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  padding-top: 10px;
+}
+.iconsBB div img{
+  display: block;
+  margin: auto;
+  object-fit: contain;
+  max-height: 35%;
+}
+.iconsBB div p{
+  font-size: 20px;
+  margin-top: -10px;
+  text-align: center;
+}
+@keyframes button-tilt {
+  from {
+    transform: rotate(-5deg);
+    transform: scale(1.2);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .carText {
+    animation: button-tilt infinite 0.75s linear alternate-reverse;
+  }
+}
+@media (max-width:1000px) {
+
+}

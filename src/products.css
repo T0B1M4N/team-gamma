@@ -93,10 +93,12 @@
 }
 
 .pages{
-  width: 10%;
+  max-width: 130px;
   display: flex;
   height: 5vh;
   margin:auto;
+  padding-bottom: 40px;
+  padding-top: 10px;
   display: flex;
 }
 .pageNum{
@@ -136,5 +138,31 @@
 @media (prefers-reduced-motion: no-preference) {
   .carText {
     animation: button-tilt infinite 0.75s linear alternate-reverse;
+  }
+}
+@media (max-width:1000px) {
+  .item{
+    width: 150px;
+    height: 22.5vh;
+  }
+  .imagediv{
+    width: 120px;
+  }
+  .discountImg{
+    width: 35px;
+     margin-left: 60%;
+    margin-top: 1px;
+    top: 60%;
+    right: 50%;
+  }
+  .discount{
+    font-size: 15px;
+    top: 60%;
+    right: 49%;
+  }
+  .price{
+    text-indent: 80px;
+    padding-bottom: 30px;
+    padding-top: 10px;
   }
 }

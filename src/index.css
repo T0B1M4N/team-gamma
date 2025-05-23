@@ -68,18 +68,15 @@ button:focus-visible {
   position: fixed;
   height: 10vh;
   width: 100%;
-  background-color: rgb(233, 233, 233);
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: space-around;
+  background-color: white;
   box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
   color: black;
   z-index: 20;
 }
 .SideBar{
   width: 15%;
-  height: 100vh;
+  height: 90vh;
+  margin-top: 10vh;
   position: fixed;
   background: linear-gradient(0deg, rgb(180,180,255)0% , rgb(255,180,180))100% ;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
@@ -87,8 +84,41 @@ button:focus-visible {
 }
 .products{
   width: 85%;
-  height: 330vh;
+  max-height: 2000vh;
   padding-top: 15vh;
   margin-left: 15%;
+  background:linear-gradient(rgba(255,190,200,0.3) 0%,rgb(255,255,255) 100%);
+  background-size:cover;
+  background-attachment: fixed;
   background-color: white;
+}
+.BottomBar{
+  position: fixed;
+  bottom: 0px;
+  height: 0vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+  color: black;
+  z-index: 21;
+}
+
+@media (max-width:1000px) {
+  .SideBar{
+    width: 0;
+  }
+  .products{
+    width: 100%;
+    margin-left: 0%;
+  }
+  .BottomBar{
+    height: 10vh;
+  }
+  .TopBar{
+    height: 15vh;
+  }
 }
