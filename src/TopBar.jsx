@@ -14,7 +14,13 @@ function App() {
     <>    
         <div className="mobileDevider">
           <div className="topTB">
-            <div className="menuButton"><img src={menu} alt="" className='menuButtonImg' /></div>
+            <div className="menuButton"><img src={menu} alt="" className='menuButtonImg' 
+            onClick={() => {
+                   products.className = "products";
+                    cartdiv.className = "cart";
+                  }}
+                  />
+                  </div>
             <div className="Name">Store Name</div>
             <div className="searchbar"><img className='searchIcon' src={searchicon}/><input type="search" className='searchbox' /></div>
             <div className="icons">
