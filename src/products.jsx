@@ -1,36 +1,37 @@
-// Products.jsx
 import React, { useEffect, useRef, useState } from "react";
 import salePNG from "../images/salePNG.png";
 import arrow from "../images/arrow.png";
 import { ChangeId } from "./CurrentProduct.jsx";
 import { loadProducts } from "./ProductData";
-import "./products.css"
+import "./products.css";
+import { useAppContext } from "./AppContext";
 
 function Products() {
-  const mainDivRef = useRef(null);
   const productNum = 40;
   const [page, setPage] = useState(0);
   const [totalProducts, setTotalProducts] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products2, setProducts] = useState([]);
 
-  function scrollToTop(duration = 500) {
-  const start = window.scrollY || window.pageYOffset;
-  const startTime = performance.now();
+  const productDivRef = useRef(null);
+  const { isSwitchOn } = useAppContext();
 
-  function scrollStep(timestamp) {
-    const elapsed = timestamp - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, start * (1 - progress));
-    if (progress < 1) {
-      requestAnimationFrame(scrollStep);
+  // Determine item and arrow class based on theme
+  const ItemClass = isSwitchOn ? "item-dark" : "item";
+  const LeftArrClass = isSwitchOn ? "leftarr-dark" : "leftarr";
+  const RightArrClass = isSwitchOn ? "rightarr-dark" : "rightarr";
+
+  // Watch for theme changes and update class if not "products2"
+  useEffect(() => {
+    const el = productDivRef.current;
+    if (!el) return;
+
+    if (el.className !== "products2" && el.className !== "products2-dark") {
+      el.className = isSwitchOn ? "products-dark" : "products";
     }
-  }
+  }, [isSwitchOn]);
 
-  requestAnimationFrame(scrollStep);
-}
-
-  // Load products once, then paginate locally
+  // Load products once on mount
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
@@ -42,74 +43,23 @@ function Products() {
     fetchData();
   }, []);
 
-  // Render products for current page
-  useEffect(() => {
-    if (!products.length) return;
+  const visibleProducts = products2.slice(page * productNum, (page + 1) * productNum);
 
-    const container = mainDivRef.current;
-    container.innerHTML = ""; // clear old content
+  function scrollToTop(duration = 500) {
+    const start = window.scrollY || window.pageYOffset;
+    const startTime = performance.now();
 
-    const startIndex = page * productNum;
-    const endIndex = Math.min(startIndex + productNum, products.length);
-
-    for (let i = startIndex; i < endIndex; i++) {
-      const product = products[i];
-
-      const itemDiv = document.createElement("div");
-      itemDiv.className = "item";
-      itemDiv.id = `product-${product.id}`;
-
-      const imgDiv = document.createElement("div");
-      imgDiv.className = "imagediv";
-
-      const image = document.createElement("img");
-      image.src = product.images[0];
-      image.className = "image";
-      imgDiv.appendChild(image);
-
-      const textDiv = document.createElement("div");
-      textDiv.className = "textdiv";
-
-      const currentText = document.createElement("p");
-      currentText.className = "text";
-      let title = product.title;
-      if (title.length > 30) title = title.slice(0, 30) + "...";
-      currentText.textContent = title;
-
-      const currentPrice = document.createElement("p");
-      currentPrice.className = "price";
-      currentPrice.textContent = `${product.price}$`;
-
-      const discountEl = document.createElement("p");
-      discountEl.className = "discount";
-      const discount = product.discountPercentage;
-      discountEl.textContent = discount >= 10 ? `${Math.ceil(discount)}%` : "";
-
-      const discountImg = document.createElement("img");
-      discountImg.className = "discountImg";
-      discountImg.src = discount >= 10 ? salePNG : "";
-
-      textDiv.appendChild(currentText);
-      textDiv.appendChild(discountEl);
-      textDiv.appendChild(discountImg);
-      textDiv.appendChild(currentPrice);
-
-      itemDiv.appendChild(imgDiv);
-      itemDiv.appendChild(textDiv);
-
-      // Onclick handler calls ChangeId with product id
-      itemDiv.onclick = () => {
-        const productsDiv = document.getElementById("ProductDiv");
-        const CurProductDiv = document.getElementById("CurProductDiv");
-        if (productsDiv) productsDiv.className = "products2";
-        if (CurProductDiv) CurProductDiv.className = "CurProductOpen";
-        ChangeId(product.id);
-        scrollToTop(250);
-      };
-
-      container.appendChild(itemDiv);
+    function scrollStep(timestamp) {
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, start * (1 - progress));
+      if (progress < 1) {
+        requestAnimationFrame(scrollStep);
+      }
     }
-  }, [page, products]);
+
+    requestAnimationFrame(scrollStep);
+  }
 
   function handleLeftClick() {
     if (!loading && page > 0) setPage(page - 1);
@@ -119,18 +69,52 @@ function Products() {
     if (!loading && (page + 1) * productNum < totalProducts) setPage(page + 1);
   }
 
-  const arrowStyle = disabled => ({
+  const arrowStyle = (disabled) => ({
     cursor: disabled ? "default" : "pointer",
     opacity: disabled ? 0.3 : 1,
-    userSelect: "none"
+    userSelect: "none",
   });
 
   return (
-    <>
-      <div id="mainDiv" ref={mainDivRef} className="mainDiv"></div>
+    <div ref={productDivRef} id="ProductDiv">
+      <div className="mainDiv">
+        {visibleProducts.map((product) => {
+          const titleShort = product.title.length > 30 ? product.title.slice(0, 30) + "..." : product.title;
+          const hasDiscount = product.discountPercentage >= 10;
+
+          return (
+            <div
+              key={product.id}
+              id={`product-${product.id}`}
+              className={ItemClass}
+              onClick={() => {
+                const productsDiv = productDivRef.current;
+                const CurProductDiv = document.getElementById("CurProductDiv");
+                if (productsDiv) productsDiv.className = isSwitchOn ? "products2-dark": "products2";
+                if (CurProductDiv) {
+                  CurProductDiv.className = isSwitchOn ? "CurProductOpen-dark" : "CurProductOpen";
+                }
+                ChangeId(product.id);
+                scrollToTop(250);
+              }}
+            >
+              <div className="imagediv">
+                <img src={product.images[0]} alt={product.title} className="image" />
+              </div>
+              <div className="textdiv">
+                <p className="text">{titleShort}</p>
+                <p className="discount">{hasDiscount ? `${Math.ceil(product.discountPercentage)}%` : ""}</p>
+                {hasDiscount && <img className="discountImg" src={salePNG} alt="Sale" />}
+                <p className="price">{product.price}$</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       <div className="pages">
         <div
-          className="leftarr"
+          className={LeftArrClass}
           onClick={handleLeftClick}
           style={arrowStyle(loading || page === 0)}
           title={loading || page === 0 ? "Cannot go back" : "Previous page"}
@@ -139,19 +123,17 @@ function Products() {
         </div>
         <div className="pageNum">{page + 1}</div>
         <div
-          className="rightarr"
+          className={RightArrClass}
           onClick={handleRightClick}
           style={arrowStyle(loading || (page + 1) * productNum >= totalProducts)}
           title={
-            loading || (page + 1) * productNum >= totalProducts
-              ? "No more pages"
-              : "Next page"
+            loading || (page + 1) * productNum >= totalProducts ? "No more pages" : "Next page"
           }
         >
           <img src={arrow} alt="Right" />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

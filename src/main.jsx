@@ -7,39 +7,20 @@ import Products from './products.jsx'
 import BottomBar from "./BottomBar.jsx"
 import Cart from "./cart.jsx"
 import CurProduct from "./CurrentProduct.jsx"
+import { AppProvider } from './AppContext';
 
-createRoot(document.getElementById('TopBar')).render(
-  <StrictMode>
-    <TopBar />
-  </StrictMode>,
-)
+// Get root container element that wraps all your app or create one in your HTML
+const rootElement = document.getElementById('root'); // Make sure your HTML has a <div id="root"></div>
 
-createRoot(document.getElementById('cartDiv')).render(
+createRoot(rootElement).render(
   <StrictMode>
-    <Cart />
-  </StrictMode>,
-)
-
-createRoot(document.getElementById('SideBarDiv')).render(
-  <StrictMode>
-    <SideBar />
-  </StrictMode>,
-)
-
-createRoot(document.getElementById('ProductDiv')).render(
-  <StrictMode>
-    <Products />
-  </StrictMode>,
-)
-
-createRoot(document.getElementById('BottomBar')).render(
-  <StrictMode>
-    <BottomBar />
-  </StrictMode>,
-)
-
-createRoot(document.getElementById("CurProductDiv")).render(
-  <StrictMode>
-    <CurProduct />
-  </StrictMode>,
-)
+    <AppProvider>
+      <TopBar />
+      <SideBar />
+      <Products />
+      <Cart />
+      <CurProduct />
+      <BottomBar />
+    </AppProvider>
+  </StrictMode>
+);

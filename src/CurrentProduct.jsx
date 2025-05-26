@@ -4,6 +4,7 @@ import { getProductById } from "./ProductData"; // your function to get product 
 import "./CurrentProduct.css";
 import cart from "../images/cart-shopping-solid.svg";
 import box from "../images/box-open-solid.svg"
+import { useAppContext } from "./AppContext";
 
 let externalSetProduct = null;
 
@@ -24,7 +25,9 @@ function renderStars(rating) {
 
 function CurProd() {
   const [product, setProduct] = useState(null);
-
+  const { isSwitchOn } = useAppContext();
+  const ProductClass = isSwitchOn ? "CurProductOpen-dark" : "CurProductOpen";
+  const MainCStyle = isSwitchOn ? "mainCurDiv-dark" : "mainCurDiv";
   useEffect(() => {
     externalSetProduct = setProduct;
     return () => {
@@ -34,8 +37,10 @@ function CurProd() {
 
   if (!product) {
     return (
-      <div className="paddingDiv">
-        <p>No product selected</p>
+      <div className="CurProductClosed" id="CurProductDiv">
+        <div className="paddingDiv">
+            <p>No product selected</p>
+        </div>
       </div>
     );
   }
@@ -61,12 +66,12 @@ function CurProd() {
     returnPolicy,
     minimumOrderQuantity,
     meta,
-    thumbnail,
   } = product;
 
   return (
+    <div className={ProductClass} id="CurProductDiv">
     <div className="paddingDiv">
-        <div className="mainCurDiv">
+        <div className={MainCStyle}>
       <div className="imgTitleDesc">
         <div className="productIcon">
           <img src={images?.[0] || placeHolder} alt={title} />
@@ -129,6 +134,7 @@ function CurProd() {
             </p>
           )}
           </div>
+    </div>
     </div>
   );
 }

@@ -69,9 +69,26 @@ button:focus-visible {
   height: 100px;
   width: 100%;
   background-color: white;
+  transition: background-color 0.5s;
   box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
   color: black;
   z-index: 20;
+}
+.TopBar-dark{
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  background-color: #3C4748;
+  transition: background-color 0.5s;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+  color: rgb(255, 255, 255);
+  z-index: 20;
+}
+.TopBar-dark img:first-child{
+  filter: invert();
+}
+.TopBar-dark .menuButtonImg{
+  filter: invert();
 }
 .SideBar{
   width: 15%;
@@ -89,8 +106,20 @@ button:focus-visible {
   margin-left: 15%;
   background:linear-gradient(rgba(255,190,200,0.3) 0%,rgb(255,255,255) 100%);
   background-size:cover;
+  transition: background-color 0.5s;
   background-attachment: fixed;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+}
+.products-dark{
+  width: 85%;
+  max-height: 2000vh;
+  padding-top: 150px;
+  transition: background-color 0.5s;
+  margin-left: 15%;
+  background:linear-gradient(rgba(255, 255, 255, 0.3) 0%,#3C4748 100%);
+  background-size:cover;
+  background-attachment: fixed;
+  background-color: #3C4748;
 }
 .cart{
   height: 0vh;
@@ -123,6 +152,29 @@ button:focus-visible {
 .products2 *{
   display: none;
 }
+.products2-dark{
+  width: 85%;
+  height: 0vh;
+  padding-top: 0px;
+  margin-left: 15%;
+  background:linear-gradient(rgba(255, 255, 255, 0.3) 0%,#3C4748 100%);
+  background-size:0px;
+  background-attachment: fixed;
+  background-color: #3C4748;
+}
+.products2-dark div{
+  height: 0px;
+  width: 0px;
+}
+.products2-dark div div div{
+  font-size: 0px;
+}
+.products2-dark div div{
+  font-size: 0px;
+}
+.products2-dark *{
+  display: none;
+}
 .CurProductClosed{
   height: 0px;
 }
@@ -140,9 +192,19 @@ button:focus-visible {
   background-color: white;
   margin-top: 100px;
 }
+.CurProductOpen-dark{
+  height: 350vh;
+  background:linear-gradient(#3C4748 0%,rgb(92, 124, 212) 30%);
+  width: 85%;
+  background-attachment: fixed;
+  margin-left: 15%;
+  background-color: #3C4748;
+  margin-top: 100px;
+}
 .BottomBar{
   position: fixed;
   bottom: 0px;
+  transition: background-color 0.5s;
   height: 0vh;
   width: 100%;
   background-color: white;
@@ -154,6 +216,24 @@ button:focus-visible {
   color: black;
   z-index: 21;
 }
+.BottomBar-dark{
+  position: fixed;
+  transition: background-color 0.5s;
+  bottom: 0px;
+  height: 0vh;
+  width: 100%;
+  background-color: #3C4748;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 0px 0px 20px black;
+  color: rgb(255, 255, 255);
+  z-index: 21;
+}
+.BottomBar-dark img{
+  filter: invert();
+}
 
 @media (max-width:1000px) {
   .SideBar{
@@ -163,15 +243,30 @@ button:focus-visible {
     width: 100%;
     margin-left: 0%;
   }
+  .products-dark{
+    width: 100%;
+    margin-left: 0%;
+  }
   .BottomBar{
     height: 100px;
   }
+  .BottomBar-dark{
+    height: 100px;
+  }
   .TopBar{
+    height: 150px;
+  }
+  .TopBar-dark{
     height: 150px;
   }
   .CurProductOpen{
     width: 100%;
     margin-left: 0;
     margin-top: 150px;
+  }
+  .CurProductOpen-dark{
+   width: 100%;
+    margin-left: 0;
+    margin-top: 150px; 
   }
 }

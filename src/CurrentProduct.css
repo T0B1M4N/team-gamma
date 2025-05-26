@@ -17,6 +17,21 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     color:  black;
 }
 
+.mainCurDiv-dark{
+  width: 100%;
+  background-color: #3C4748; /* softer blue for better vibe */
+  align-items: center;
+border-radius: 12px;
+padding: 1rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.mainCurDiv-dark * {
+    color: white !important;
+}
+.mainCurDiv-dark .reviews{
+    background-color: rgb(102, 102, 102);
+}
+
 .imgTitleDesc {
   display: flex;
   flex-flow: row nowrap;
@@ -121,7 +136,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   text-align: center;
   background-color: yellow;
   border-radius: 7px 7px 0px 0px ;
-  color: black;
+  color: black !important;
   font-weight: 700;
   height: 2rem !important;
   font-size: 1.4rem;
