@@ -4,18 +4,22 @@
   text-align: center;
 }
 
-.menuButton{
-  flex: 1;
+.menuButton {
+  flex: 0 1 100px;    /* fixed-ish base width, can shrink */
+  min-width: 0;
 }
-.menuButtonImg{
+
+.menuButtonImg {
   max-height: 100%;
   object-fit: contain;
 }
-.mobileDevider{
+
+.mobileDevider {
   width: 100%;
   height: 100%;
 }
-.topTB{
+
+.topTB {
   width: 100%;
   height: 100%;
   display: flex;
@@ -23,28 +27,35 @@
   flex-direction: row;
   justify-content: space-around;
 }
-.bottomTB{
+
+.bottomTB {
   width: 100%;
   height: 0px;
 }
-.buttonTB{
+
+.buttonTB {
   font-size: 0;
 }
-.searchbar{
-  flex: 2;
+
+.searchbar {
+  flex: 1 1 300px;   /* flexible base width, can shrink */
+  min-width: 0;
   height: 50%;
-  padding-top: 1.5%;
+  padding-top: 25px;
   display: flex;
   align-items: center;
-  padding-top: 25px;
 }
-.searchIcon{
+
+.searchIcon {
   width: 50px;
   height: 50px;
 }
-.searchbox{
+
+.searchbox {
+  flex-shrink: 1;
+  min-width: 150px;  /* prevent input from getting too small */
+  width: 100%;
   height: 75%;
-  width: 75%;
   background-color: white;
   border-radius: 15px;
   color: black;
@@ -52,34 +63,44 @@
   border: 0;
   box-shadow: 0px 0px 5px black;
 }
-.icons{
-  flex: 1;
+
+.icons {
+  flex: 0 1 250px;   /* fixed-ish base width, shrinkable */
+  min-width: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding-right: 2.5%;
 }
-.icons p{
+
+.icons p {
   flex: 2;
   font-weight: 600;
   font-size: 20px;
   text-align: right;
 }
-.icons img{
+
+.icons img {
   height: 50%;
   padding: 20px;
 }
-.menuButtonImg:hover{
-  background-color: rgba(0,0,0,0.1);
+
+.menuButtonImg:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
-.Name{
-  flex: 2;
+
+.Name {
+  flex: 1 1 auto;    /* grow and shrink */
+  min-width: 0;      /* important for flexbox shrinking */
+  white-space: nowrap;
+  overflow: hidden;
   font-size: 40px;
-  margin:auto;
+  margin: auto;
   text-align: center;
   font-weight: 700;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 @keyframes button-tilt {
   from {
     transform: rotate(-5deg);
@@ -89,55 +110,59 @@
     transform: rotate(5deg);
   }
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .carText {
     animation: button-tilt infinite 0.75s linear alternate-reverse;
   }
 }
-@media (max-width:1000px) {
-  .icons{
+
+@media (max-width: 1000px) {
+  .icons {
     flex: 0;
   }
-  .icons img:first-child{
+  .icons img:first-child {
     height: 0%;
   }
-  .icons img:last-child{
+  .icons img:last-child {
     height: 0%;
   }
-  .icons p{
+  .icons p {
     font-size: 0px;
   }
-  .Name{
+  .Name {
     order: 2;
   }
-  .topTB{
+  .topTB {
     height: 66%;
   }
-  .bottomTB{
+  .bottomTB {
     height: 34%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     gap: 10px;
-    padding-left:30px ;
+    padding-left: 30px;
   }
-  .buttonTB{
-  min-width: 70px;
-  max-width: 120px;
-  transition: background-color 0.1s;
-  transition: color 0.2s;
-  height: 75%;
-  font-size: 22.5px;
-  padding-right: 5px;
-  text-align: center;
-  text-indent: 10px;
-  box-shadow: 0px 0px 0px rgba(226, 226, 226,1);
-  border-radius: 30px;
-}
-.buttonTB:active{
-  background-color: black;
-  transition: background-color 0.1s;
-  transition: color 0.2s;
-  color: white;
-}
+  .buttonTB {
+    min-width: 70px;
+    max-width: 120px;
+    transition: background-color 0.1s, color 0.2s;
+    height: 75%;
+    font-size: 22.5px;
+    padding-right: 5px;
+    text-align: center;
+    text-indent: 10px;
+    box-shadow: 0px 0px 0px rgba(226, 226, 226, 1);
+    border-radius: 30px;
+  }
+  .buttonTB:active {
+    background-color: black;
+    color: white;
+    transition: background-color 0.1s, color 0.2s;
+  }
+  .searchbar{
+    flex: 1 1 200px; 
+    padding-left: 25px;
+  }
 }

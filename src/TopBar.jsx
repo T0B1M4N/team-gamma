@@ -10,6 +10,7 @@ import searchicon from "../images/search-icon.png"
 function App() {
   const products = document.getElementById("ProductDiv")
   const cartdiv = document.getElementById("cartDiv")
+  const curproduct = document.getElementById("CurProductDiv")
   return(
     <>    
         <div className="mobileDevider">
@@ -18,6 +19,7 @@ function App() {
             onClick={() => {
                    products.className = "products";
                     cartdiv.className = "cart";
+                    curproduct.className = "CurProductClosed";
                   }}
                   />
                   </div>

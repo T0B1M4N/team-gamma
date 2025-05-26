@@ -105,7 +105,7 @@ button:focus-visible {
   height: 0vh;
   padding-top: 0px;
   margin-left: 15%;
-  background:linear-gradient(rgba(255,190,200,0.3) 0%,rgb(255, 255, 255) 100%);
+  background:linear-gradient(rgb(255,190,200) 0%,rgb(255, 255, 255) 100%);
   background-size:0px;
   background-attachment: fixed;
   background-color: white;
@@ -119,6 +119,26 @@ button:focus-visible {
 }
 .products2 div div{
   font-size: 0px;
+}
+.products2 *{
+  display: none;
+}
+.CurProductClosed{
+  height: 0px;
+}
+.CurProductClosed *{
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+.CurProductOpen{
+  height: 350vh;
+  background:linear-gradient(rgb(255, 255, 255) 0%,rgb(161, 204, 253) 30%);
+  width: 85%;
+  background-attachment: fixed;
+  margin-left: 15%;
+  background-color: white;
+  margin-top: 100px;
 }
 .BottomBar{
   position: fixed;
@@ -148,5 +168,10 @@ button:focus-visible {
   }
   .TopBar{
     height: 150px;
+  }
+  .CurProductOpen{
+    width: 100%;
+    margin-left: 0;
+    margin-top: 150px;
   }
 }
