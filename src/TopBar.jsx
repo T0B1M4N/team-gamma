@@ -10,6 +10,10 @@ import searchicon from "../images/search-icon.png"
 function App() {
   const products = document.getElementById("ProductDiv")
   const cartdiv = document.getElementById("cartDiv")
+  const [showUserPopup, setShowUserPopup] = useState(false);
+  const toggleUserPopup = () => {
+    setShowUserPopup(!showUserPopup);
+  };
   const curproduct = document.getElementById("CurProductDiv")
   return(
     <>    
@@ -26,13 +30,20 @@ function App() {
             <div className="Name">Store Name</div>
             <div className="searchbar"><img className='searchIcon' src={searchicon}/><input type="search" className='searchbox' /></div>
             <div className="icons">
-                <img src={cart} alt="" onClick={() => {
+                <img src={cart} alt="Cart" className='menuButtonImg highlightable' onClick={() => {
                    products.className = "products2";
                   cartdiv.className = "cart2";
                   }}/>
               <p>UserProfile</p>
-              <img src={User} alt="" />
-            </div>
+              <img src={User} alt="User" className='menuButtonImg highlightable'
+                {showUserPopup && (
+                  <div className="userPopup">
+                    <p>Account</p>
+                    <p>Settings</p>
+                    <p>Logout</p>
+                  </div>
+                )}/>
+              </div>
           </div>
           <div className="bottomTB">
             <div className="buttonTB">New</div>
