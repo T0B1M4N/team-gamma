@@ -36,7 +36,7 @@ function App() {
                   }}/>
               <p>UserProfile</p>
               <img src={User} alt="User" className='menuButtonImg highlightable'
-                {showUserPopup && (
+                {...toggleUserPopup && (
                   <div className="userPopup">
                     <p>Account</p>
                     <p>Settings</p>
