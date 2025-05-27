@@ -98,23 +98,22 @@ function TopBar() {
               className="menuButtonImg highlightable"
               onClick={handleCartClick}
             />
-            <p>UserProfile</p>
-            <img
-              src={User}
-              alt="User"
-              className="menuButtonImg highlightable"
-              onClick={toggleUserPopup}
-            />
-            {showUserPopup && (
-              <div className="userPopup">
-                <p>Account</p>
-                <p>Settings</p>
-                <p>Logout</p>
-              </div>
-            )}
-          </div>
-        </div>
-
+  <div className="userButton" onClick={toggleUserPopup}>
+    <img
+      src={User}
+      alt="User"
+      className="menuButtonImg highlightable"
+    />
+    {showUserPopup && (
+      <div className="userPopup">
+        <p>Account</p>
+        <p>Settings</p>
+        <p>Logout</p>
+      </div>
+    )}
+  </div>
+</div>
+</div>
         <div className="bottomTB">
           <div className="buttonTB">New</div>
           <div className="buttonTB">Trending</div>
