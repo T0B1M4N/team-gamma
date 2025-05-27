@@ -47,6 +47,15 @@ function TopBar() {
     }
   };
 
+  const handleUserClick = () => {
+    const products = document.getElementById("ProductDiv");
+    const cartdiv = document.getElementById("cartDiv");
+    if (products && cartdiv) {
+      products.className = isSwitchOn ? "products2-dark": "products2";
+      cartdiv.className = "cart2";
+    }
+  };
+
   return (
     <div className={TopBarClass}>
     <ThemeContext.Provider value={{ isSwitchOn, toggleSwitch }}>
@@ -98,22 +107,14 @@ function TopBar() {
               className="menuButtonImg highlightable"
               onClick={handleCartClick}
             />
-  <div className="userButton" onClick={toggleUserPopup}>
-    <img
-      src={User}
-      alt="User"
-      className="menuButtonImg highlightable"
-    />
-    {showUserPopup && (
-      <div className="userPopup">
-        <p>Account</p>
-        <p>Settings</p>
-        <p>Logout</p>
+            <img
+              src={User}
+              alt="User"
+              className="menuButtonImg highlightable"
+              onClick={handleUserClick}
+            />
+          </div>
       </div>
-    )}
-  </div>
-</div>
-</div>
         <div className="bottomTB">
           <div className="buttonTB">New</div>
           <div className="buttonTB">Trending</div>
