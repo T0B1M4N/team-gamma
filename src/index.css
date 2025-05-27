@@ -136,8 +136,8 @@ button:focus-visible {
   width: 100%;
 }
 .products2{
-  width: 85%;
-  height: 0vh;
+  width: 0%;
+  max-height: 2000vh;
   padding-top: 0px;
   margin-left: 15%;
   background:linear-gradient(rgb(255,190,200) 0%,rgb(255, 255, 255) 100%);
@@ -153,7 +153,6 @@ button:focus-visible {
   z-index: 5;
 }
 .products2 div{
-  height: 0px;
   width: 0px;
 }
 .products2 div div div{
@@ -167,8 +166,8 @@ button:focus-visible {
 }
 .products2-dark{
   z-index: 5;
-  width: 85%;
-  height: 0vh;
+  width: 0%;
+  max-width: 2000vh;
   padding-top: 0px;
   margin-left: 15%;
   background:linear-gradient(rgba(255, 255, 255, 0.3) 0%,#3C4748 100%);
