@@ -47,7 +47,7 @@
   transition: .4s;
   image-rendering: pixelated;
   opacity: 0;
-  box-shadow: 0px 0px 35px rgb(255, 197, 39);
+  box-shadow: 0px 0px 80px rgb(255, 197, 39),0px 0px 60px rgb(255, 197, 39),0px 0px 40px rgb(255, 197, 39);
 }
 
 .switch input:checked ~ .on {

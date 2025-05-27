@@ -20,6 +20,8 @@ function Products() {
   const ItemClass = isSwitchOn ? "item-dark" : "item";
   const LeftArrClass = isSwitchOn ? "leftarr-dark" : "leftarr";
   const RightArrClass = isSwitchOn ? "rightarr-dark" : "rightarr";
+  const imagedivclass = isSwitchOn ? "imagediv-dark" : "imagediv";
+  const pageNumClass = isSwitchOn ? "pageNum-dark" : "pageNum";
 
   // Watch for theme changes and update class if not "products2"
   useEffect(() => {
@@ -81,7 +83,6 @@ function Products() {
         {visibleProducts.map((product) => {
           const titleShort = product.title.length > 30 ? product.title.slice(0, 30) + "..." : product.title;
           const hasDiscount = product.discountPercentage >= 10;
-
           return (
             <div
               key={product.id}
@@ -98,7 +99,7 @@ function Products() {
                 scrollToTop(250);
               }}
             >
-              <div className="imagediv">
+              <div className={imagedivclass}>
                 <img src={product.images[0]} alt={product.title} className="image" />
               </div>
               <div className="textdiv">
@@ -121,7 +122,7 @@ function Products() {
         >
           <img src={arrow} alt="Left" style={{ transform: "rotate(180deg)" }} />
         </div>
-        <div className="pageNum">{page + 1}</div>
+        <div className={pageNumClass}>{page + 1}</div>
         <div
           className={RightArrClass}
           onClick={handleRightClick}

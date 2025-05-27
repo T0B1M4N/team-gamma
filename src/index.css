@@ -99,6 +99,15 @@ button:focus-visible {
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   z-index: 19;
 }
+.SideBar-dark{
+  width: 15%;
+  height: 90vh;
+  margin-top: 10vh;
+  position: fixed;
+  background: linear-gradient(0deg, rgb(164, 164, 235)0% , rgb(107, 44, 44))100% ;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 19;
+}
 .products{
   z-index: 5;
   width: 85%;
@@ -211,7 +220,7 @@ button:focus-visible {
   z-index: 1;
   position: absolute;
   height: 350vh;
-  background:linear-gradient(#3C4748 0%,rgb(92, 124, 212) 30%);
+  background:linear-gradient(rgb(127,127,127) 0%,rgb(92, 124, 212) 30%);
   width: 85%;
   background-attachment: fixed;
   margin-left: 15%;

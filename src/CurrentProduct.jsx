@@ -27,6 +27,7 @@ function CurProd() {
   const [product, setProduct] = useState(null);
   const { isSwitchOn } = useAppContext();
   const MainCStyle = isSwitchOn ? "mainCurDiv-dark" : "mainCurDiv";
+  const stockstyle = isSwitchOn ? "Stock-dark" : "Stock"
   useEffect(() => {
     externalSetProduct = setProduct;
     return () => {
@@ -38,7 +39,7 @@ function CurProd() {
     return (
       <div className="CurProductClosed" id="CurProductDiv">
         <div className="paddingDiv">
-            <p>No product selected</p>
+            <p style={{color: "red", fontSize: "100px"}}>No product selected</p>
         </div>
       </div>
     );
@@ -81,7 +82,7 @@ function CurProd() {
           <p>
             {renderStars(rating)} <span className="ratingNumber">{rating.toFixed(2)}</span> / 5
           </p>
-          <p className="Stock"><img src={box} className="IconBox" alt="" /> In Stock: {stock}</p>
+          <p className={stockstyle}><img src={box} className="IconBox" alt="" /> In Stock: {stock}</p>
           <p><strong>Category:</strong> {category}</p>
           <p><strong>Tags:</strong> {tags.join(", ")}</p>
           {brand && <p><strong>Brand:</strong> {brand}</p>}

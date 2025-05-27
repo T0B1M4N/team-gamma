@@ -83,6 +83,12 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 .Stock{
     font-size: 31px;
 }
+.Stock-dark{
+  font-size: 31px;
+}
+.Stock-dark img{
+  filter: invert();
+}
 .AddToCart{
     width: 80%;
     background-color: #99bd09;
@@ -141,6 +147,9 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   height: 2rem !important;
   font-size: 1.4rem;
   margin: 0;
+}
+.discountText strong{
+  color: black !important;
 }
 
 .CurPriceDis{
