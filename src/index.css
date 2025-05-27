@@ -100,23 +100,29 @@ button:focus-visible {
   z-index: 19;
 }
 .products{
+  z-index: 5;
   width: 85%;
   max-height: 2000vh;
   padding-top: 150px;
   margin-left: 15%;
-  background:linear-gradient(rgba(255,190,200,0.3) 0%,rgb(255,255,255) 100%);
+  background:linear-gradient(rgb(255, 227, 231) 0%,rgb(255,255,255) 100%);
   background-size:cover;
-  transition: background-color 0.5s;
   background-attachment: fixed;
   background-color: rgb(255, 255, 255);
 }
+.products *{
+  z-index: 5;
+}
+.products-dark *{
+  z-index: 5;
+}
 .products-dark{
+  z-index: 5;
   width: 85%;
   max-height: 2000vh;
   padding-top: 150px;
-  transition: background-color 0.5s;
   margin-left: 15%;
-  background:linear-gradient(rgba(255, 255, 255, 0.3) 0%,#3C4748 100%);
+  background:linear-gradient(rgb(122, 122, 122) 0%,#3C4748 100%);
   background-size:cover;
   background-attachment: fixed;
   background-color: #3C4748;
@@ -138,6 +144,13 @@ button:focus-visible {
   background-size:0px;
   background-attachment: fixed;
   background-color: white;
+  z-index: 5;
+}
+.products *{
+  z-index: 5;
+}
+.products-dark *{
+  z-index: 5;
 }
 .products2 div{
   height: 0px;
@@ -153,6 +166,7 @@ button:focus-visible {
   display: none;
 }
 .products2-dark{
+  z-index: 5;
   width: 85%;
   height: 0vh;
   padding-top: 0px;
@@ -184,22 +198,32 @@ button:focus-visible {
   display: none;
 }
 .CurProductOpen{
+  z-index: 1;
   height: 350vh;
+  position: fixed;
   background:linear-gradient(rgb(255, 255, 255) 0%,rgb(161, 204, 253) 30%);
   width: 85%;
   background-attachment: fixed;
-  margin-left: 15%;
+  left: 15%;
   background-color: white;
-  margin-top: 100px;
+  top: 100px;
 }
 .CurProductOpen-dark{
+  z-index: 1;
+  position: absolute;
   height: 350vh;
   background:linear-gradient(#3C4748 0%,rgb(92, 124, 212) 30%);
   width: 85%;
   background-attachment: fixed;
   margin-left: 15%;
   background-color: #3C4748;
-  margin-top: 100px;
+  top: 100px;
+}
+.CurProductOpen-dark *{
+  z-index: 1;
+}
+.CurProductOpen *{
+  z-index: 1;
 }
 .BottomBar{
   position: fixed;
@@ -262,11 +286,13 @@ button:focus-visible {
   .CurProductOpen{
     width: 100%;
     margin-left: 0;
-    margin-top: 150px;
+    top: 150px;
+    z-index: 2;
   }
   .CurProductOpen-dark{
    width: 100%;
     margin-left: 0;
-    margin-top: 150px; 
+    top: 150px;
+    z-index: 2;
   }
 }

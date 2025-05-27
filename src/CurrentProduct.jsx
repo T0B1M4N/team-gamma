@@ -26,7 +26,6 @@ function renderStars(rating) {
 function CurProd() {
   const [product, setProduct] = useState(null);
   const { isSwitchOn } = useAppContext();
-  const ProductClass = isSwitchOn ? "CurProductOpen-dark" : "CurProductOpen";
   const MainCStyle = isSwitchOn ? "mainCurDiv-dark" : "mainCurDiv";
   useEffect(() => {
     externalSetProduct = setProduct;
@@ -69,7 +68,7 @@ function CurProd() {
   } = product;
 
   return (
-    <div className={ProductClass} id="CurProductDiv">
+    <div className="CurProductOpen" id="CurProductDiv">
     <div className="paddingDiv">
         <div className={MainCStyle}>
       <div className="imgTitleDesc">
