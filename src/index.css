@@ -139,11 +139,10 @@ button:focus-visible {
 }
 .cart{
   height: 0vh;
+  position: absolute;
 }
-.cart2{
-  height: 100vh;
-  background-color: red;
-  width: 100%;
+.cart *{
+  display: none;
 }
 .products2{
   width: 0%;
