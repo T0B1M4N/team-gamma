@@ -41,6 +41,10 @@ function TopBar() {
       cartdiv.className = "cart2";
     }
   };
+  const handleUserpageClick = () => {
+    const userpagediv = document.getElementById("userpageDiv");
+    userpagediv.className = isSwitchOn ? "userpagediv-dark": "userpagediv"
+  };
 
   return (
     <div className={TopBarClass}>
@@ -102,7 +106,7 @@ function TopBar() {
               src={User}
               alt="User"
               className="menuButtonImg highlightable"
-              onClick={handleUserClick}
+              onClick={handleUserpageClick}
             />
           </div>
         </div>
