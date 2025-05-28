@@ -5,6 +5,19 @@ import menu from "../images/menu.png";
 import searchicon from "../images/search-icon.png";
 import { useAppContext } from "./AppContext";
 import "./TopBar.css";
+import "./OpenSourceCssStuff.css"
+
+function scrollToTop(duration = 500) {
+    const start = window.scrollY || window.pageYOffset;
+    const startTime = performance.now();
+    function scrollStep(timestamp) {
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, start * (1 - progress));
+      if (progress < 1) requestAnimationFrame(scrollStep);
+    }
+    requestAnimationFrame(scrollStep);
+  }
 
 function TopBar() {
   const { isSwitchOn, toggleSwitch, searchQuery, setSearchQuery } = useAppContext(); 
@@ -27,9 +40,12 @@ function TopBar() {
   const handleCartClick = () => {
     const products = document.getElementById("ProductDiv");
     const cartdiv = document.getElementById("cartDiv");
+    const curproduct = document.getElementById("CurProductDiv");
     if (products && cartdiv) {
       products.className = isSwitchOn ? "products2-dark" : "products2";
       cartdiv.className = "cart2";
+      curproduct.className = "CurProductClosed";
+      scrollToTop(250);
     }
   };
 

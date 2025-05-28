@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import placeHolder from "../images/placeholder-image.png";
-import { getProductById } from "./ProductData"; // your function to get product by id
+import { getProductById } from "./ProductData";
 import "./CurrentProduct.css";
 import cart from "../images/cart-shopping-solid.svg";
-import box from "../images/box-open-solid.svg"
+import box from "../images/box-open-solid.svg";
 import { useAppContext } from "./AppContext";
 
 let externalSetProduct = null;
@@ -25,7 +25,7 @@ function renderStars(rating) {
 
 function CurProd() {
   const [product, setProduct] = useState(null);
-  const { isSwitchOn } = useAppContext();
+  const { isSwitchOn, addToCart } = useAppContext();
   const MainCStyle = isSwitchOn ? "mainCurDiv-dark" : "mainCurDiv";
   const stockstyle = isSwitchOn ? "Stock-dark" : "Stock";
   const prodIconstyle = isSwitchOn ? "productIcon-dark" : "productIcon";
@@ -103,7 +103,7 @@ function CurProd() {
             ) : (
              <p className="CurPrice">${price.toFixed(2)},-</p>
             )}
-            <div className="AddToCart">
+            <div className="AddToCart" onClick={() => addToCart(product)}>
                 <img className="Icon" src={cart} alt=""/>
                 Add to Cart
             </div>
