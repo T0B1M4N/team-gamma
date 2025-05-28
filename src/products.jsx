@@ -6,6 +6,7 @@ import { loadProducts } from "./ProductData";
 import "./products.css";
 import { useAppContext } from "./AppContext";
 
+
 function Products() {
   const productNum = 40;
   const [page, setPage] = useState(0);
