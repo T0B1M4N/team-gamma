@@ -47,13 +47,9 @@ function TopBar() {
     }
   };
 
-  const handleUserClick = () => {
-    const products = document.getElementById("ProductDiv");
-    const cartdiv = document.getElementById("cartDiv");
-    if (products && cartdiv) {
-      products.className = isSwitchOn ? "products2-dark": "products2";
-      cartdiv.className = "cart2";
-    }
+  const handleUserpageClick = () => {
+    const userpagediv = document.getElementById("userpageDiv");
+    userpagediv.className = isSwitchOn ? "userpagediv-dark": "userpagediv"
   };
 
   return (
@@ -111,7 +107,7 @@ function TopBar() {
               src={User}
               alt="User"
               className="menuButtonImg highlightable"
-              onClick={handleUserClick}
+              onClick={handleUserpageClick}
             />
           </div>
       </div>

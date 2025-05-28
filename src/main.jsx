@@ -6,6 +6,7 @@ import SideBar from './SideBar.jsx'
 import Products from './products.jsx'
 import BottomBar from "./BottomBar.jsx"
 import Cart from "./cart.jsx"
+import User from "./user.jsx"
 import CurProduct from "./CurrentProduct.jsx"
 import { AppProvider } from './AppContext';
 
