@@ -1,26 +1,32 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import TopBar from './TopBar.jsx'
-import SideBar from './SideBar.jsx'
-import Products from './products.jsx'
-import BottomBar from "./BottomBar.jsx"
-import Cart from "./cart.jsx"
-import CurProduct from "./CurrentProduct.jsx"
-import { AppProvider } from './AppContext';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import TopBar from "./TopBar.jsx";
+import SideBar from "./SideBar.jsx";
+import Products from "./products.jsx";
+import BottomBar from "./BottomBar.jsx";
+import Cart from "./cart.jsx";
+import CurProduct from "./CurrentProduct.jsx";
+import { AppWrapper } from "./AppContext"; // <-- import the provider component
 
-// Get root container element that wraps all your app or create one in your HTML
-const rootElement = document.getElementById('root'); // Make sure your HTML has a <div id="root"></div>
-
-createRoot(rootElement).render(
-  <StrictMode>
-    <AppProvider>
+function App() {
+  return (
+    <>
       <TopBar />
       <SideBar />
       <Products />
       <Cart />
       <CurProduct />
       <BottomBar />
-    </AppProvider>
+    </>
+  );
+}
+
+const rootElement = document.getElementById("root");
+createRoot(rootElement).render(
+  <StrictMode>
+    <AppWrapper> {/* Wrap your whole app in context */}
+      <App />
+    </AppWrapper>
   </StrictMode>
 );

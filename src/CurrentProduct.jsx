@@ -27,7 +27,8 @@ function CurProd() {
   const [product, setProduct] = useState(null);
   const { isSwitchOn } = useAppContext();
   const MainCStyle = isSwitchOn ? "mainCurDiv-dark" : "mainCurDiv";
-  const stockstyle = isSwitchOn ? "Stock-dark" : "Stock"
+  const stockstyle = isSwitchOn ? "Stock-dark" : "Stock";
+  const prodIconstyle = isSwitchOn ? "productIcon-dark" : "productIcon";
   useEffect(() => {
     externalSetProduct = setProduct;
     return () => {
@@ -73,7 +74,7 @@ function CurProd() {
     <div className="paddingDiv">
         <div className={MainCStyle}>
       <div className="imgTitleDesc">
-        <div className="productIcon">
+        <div className={prodIconstyle}>
           <img src={images?.[0] || placeHolder} alt={title} />
         </div>
         <div className="TitleDesc">

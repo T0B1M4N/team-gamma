@@ -112,6 +112,7 @@ button:focus-visible {
   z-index: 5;
   width: 85%;
   max-height: 2000vh;
+  min-height: 200vh;
   padding-top: 150px;
   margin-left: 15%;
   background:linear-gradient(rgb(255, 227, 231) 0%,rgb(255,255,255) 100%);
@@ -208,7 +209,7 @@ button:focus-visible {
 .CurProductOpen{
   z-index: 1;
   height: 350vh;
-  position: fixed;
+  position: absolute;
   background:linear-gradient(rgb(255, 255, 255) 0%,rgb(161, 204, 253) 30%);
   width: 85%;
   background-attachment: fixed;

@@ -7,7 +7,7 @@
 
 .mainCurDiv{
   width: 100%;
-  background-color: #ffffff; /* softer blue for better vibe */
+  background-color: #fffafa; /* softer blue for better vibe */
   align-items: center;
 border-radius: 12px;
 padding: 1rem;
@@ -51,6 +51,16 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   border-radius: 20%; /* perfect circle */
   overflow: hidden; /* clip image inside circle */
 }
+.productIcon-dark{
+  flex: 0 0 40%; /* fixed 40% width, no grow/shrink */
+  aspect-ratio: 1 / 1;
+  background-color: #8b8589;
+  border: 1px solid #6d6d6d;
+  margin-bottom: 30%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  border-radius: 20%; /* perfect circle */
+  overflow: hidden;
+}
 .imgTitleDesc p{
     height: 5px;
     color: black;
@@ -60,6 +70,23 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   display: block;
   width: 100%;
   height: 100%;
+  transition: transform 0.3s;
+}
+.productIcon img:hover{
+  transform: scale(1.5);
+  transition: transform 0.3s;
+}
+.productIcon-dark img {
+    object-fit: cover;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+}
+.productIcon-dark img:hover{
+  transform: scale(1.5);
+  transition: transform 0.3s;
 }
 
 .TitleDesc {

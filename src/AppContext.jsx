@@ -1,14 +1,22 @@
-import React, { createContext, useState, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 const AppContext = createContext();
 
-export function AppProvider({ children }) {
+export function AppWrapper({ children }) {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
-
   const toggleSwitch = () => setIsSwitchOn((prev) => !prev);
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
-    <AppContext.Provider value={{ isSwitchOn, toggleSwitch }}>
+    <AppContext.Provider
+      value={{
+        isSwitchOn,
+        toggleSwitch,
+        searchQuery,
+        setSearchQuery,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

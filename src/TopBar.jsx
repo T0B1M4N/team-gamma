@@ -1,31 +1,17 @@
-import React, { useState, createContext, useContext } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./TopBar.css";
+import React, { useState } from "react";
 import cart from "../images/cart-shopping-solid.svg";
 import User from "../images/user-regular.svg";
 import menu from "../images/menu.png";
 import searchicon from "../images/search-icon.png";
-import "./OpenSourceCssStuff.css";
 import { useAppContext } from "./AppContext";
-
-const ThemeContext = createContext(null);
+import "./TopBar.css";
 
 function TopBar() {
-  // Context state for switch
-  const { isSwitchOn, toggleSwitch } = useAppContext();
+  const { isSwitchOn, toggleSwitch, searchQuery, setSearchQuery } = useAppContext(); 
   const TopBarClass = isSwitchOn ? "TopBar-dark" : "TopBar";
-  // User popup state
   const [showUserPopup, setShowUserPopup] = useState(false);
+
   const toggleUserPopup = () => setShowUserPopup((prev) => !prev);
-
-  // Instead of document.getElementById (not ideal in React),
-  // consider managing these as refs or state in your app's parent component
-  // Here we'll keep the old behavior as comments
-
-  // const products = document.getElementById("ProductDiv");
-  // const cartdiv = document.getElementById("cartDiv");
-  // const curproduct = document.getElementById("CurProductDiv");
 
   const handleMenuClick = () => {
     const products = document.getElementById("ProductDiv");
@@ -42,26 +28,34 @@ function TopBar() {
     const products = document.getElementById("ProductDiv");
     const cartdiv = document.getElementById("cartDiv");
     if (products && cartdiv) {
-      products.className = isSwitchOn ? "products2-dark": "products2";
+      products.className = isSwitchOn ? "products2-dark" : "products2";
+      cartdiv.className = "cart2";
+    }
+  };
+
+  const handleUserClick = () => {
+    const products = document.getElementById("ProductDiv");
+    const cartdiv = document.getElementById("cartDiv");
+    if (products && cartdiv) {
+      products.className = isSwitchOn ? "products2-dark" : "products2";
       cartdiv.className = "cart2";
     }
   };
 
   return (
     <div className={TopBarClass}>
-    <ThemeContext.Provider value={{ isSwitchOn, toggleSwitch }}>
       <div className="mobileDevider">
         <div className="topTB">
           <div className="menuButton">
             <img
               src={menu}
-              alt=""
+              alt="Menu"
               className="menuButtonImg"
               onClick={handleMenuClick}
             />
           </div>
 
-          {/* Minecraft-style Switch */}
+         {/* Minecraft-style Switch */}
           <label className="switch">
             <input
               type="checkbox"
@@ -88,7 +82,13 @@ function TopBar() {
 
           <div className="searchbar">
             <img className="searchIcon" src={searchicon} alt="Search" />
-            <input type="search" className="searchbox" />
+            <input
+              type="search"
+              className="searchbox"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search products..."
+            />
           </div>
 
           <div className="icons">
@@ -98,22 +98,15 @@ function TopBar() {
               className="menuButtonImg highlightable"
               onClick={handleCartClick}
             />
-  <div className="userButton" onClick={toggleUserPopup}>
-    <img
-      src={User}
-      alt="User"
-      className="menuButtonImg highlightable"
-    />
-    {showUserPopup && (
-      <div className="userPopup">
-        <p>Account</p>
-        <p>Settings</p>
-        <p>Logout</p>
-      </div>
-    )}
-  </div>
-</div>
-</div>
+            <img
+              src={User}
+              alt="User"
+              className="menuButtonImg highlightable"
+              onClick={handleUserClick}
+            />
+          </div>
+        </div>
+
         <div className="bottomTB">
           <div className="buttonTB">New</div>
           <div className="buttonTB">Trending</div>
@@ -122,7 +115,6 @@ function TopBar() {
           <div className="buttonTB">sybau</div>
         </div>
       </div>
-    </ThemeContext.Provider>
     </div>
   );
 }
