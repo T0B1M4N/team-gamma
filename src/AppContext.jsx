@@ -8,10 +8,11 @@ import BottomBar from "./BottomBar.jsx";
 
 const AppContext = createContext();
 
-export function AppWrapper({ children }) {
+export function AppWrapper() {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [cartItems, setCartItems] = useState([]);
+  const [ItemPerPage, SetItemsPerPage] = useState(40);
 
   const toggleSwitch = () => setIsSwitchOn((prev) => !prev);
 
@@ -56,6 +57,8 @@ export function AppWrapper({ children }) {
         removeFromCart,
         updateQuantity,
         clearCart,
+        ItemPerPage,
+        SetItemsPerPage, // <-- Add this!
       }}
     >
       <TopBar />
