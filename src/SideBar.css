@@ -65,7 +65,7 @@
   appearance: none;
   margin: 10px auto;
   display: block;
-  background: linear-gradient(to right, #4caf50 0%, #4caf50 50%, #ccc 50%, #ccc 100%);
+  background: linear-gradient(to right, #b4f5b7 0%, #e6a2a2 100%);
   transition: background 0.3s ease;
   outline: none;
 }
@@ -77,7 +77,7 @@
   width: 18px;
   height: 18px;
   background: #fff;
-  border: 2px solid #4caf50;
+  border: 2px solid #6b9ddd;
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -95,7 +95,7 @@
   width: 18px;
   height: 18px;
   background: #fff;
-  border: 2px solid #4caf50;
+  border: 2px solid #c667da;
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -108,17 +108,18 @@
 
 /* Dark mode fill and thumb style */
 .PageSlider-dark {
-  background: linear-gradient(to right, #81c784 0%, #81c784 50%, #666 50%, #666 100%);
+  background: linear-gradient(to right, #81c784 0%, #8d5656 100%);
 }
 
 .PageSlider-dark::-webkit-slider-thumb {
-  background: #222;
-  border: 2px solid #81c784;
+  background: #3C4748;
+  border: 2px solid #3cdf9b;
+    box-shadow: inset 0px 0px 2px #3cdf9b,0px 0px 2px #3cdf9b;
 }
 
 .PageSlider-dark::-moz-range-thumb {
   background: #222;
-  border: 2px solid #81c784;
+  border: 2px solid #5db661;
 }
 
 

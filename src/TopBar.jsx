@@ -5,26 +5,28 @@ import menu from "../images/menu.png";
 import searchicon from "../images/search-icon.png";
 import { useAppContext } from "./AppContext";
 import "./TopBar.css";
-import "./OpenSourceCssStuff.css"
+import "./OpenSourceCssStuff.css";
 
 function scrollToTop(duration = 500) {
-    const start = window.scrollY || window.pageYOffset;
-    const startTime = performance.now();
-    function scrollStep(timestamp) {
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      window.scrollTo(0, start * (1 - progress));
-      if (progress < 1) requestAnimationFrame(scrollStep);
-    }
-    requestAnimationFrame(scrollStep);
+  const start = window.scrollY || window.pageYOffset;
+  const startTime = performance.now();
+  function scrollStep(timestamp) {
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start * (1 - progress));
+    if (progress < 1) requestAnimationFrame(scrollStep);
   }
+  requestAnimationFrame(scrollStep);
+}
 
 function TopBar() {
-  const { isSwitchOn, toggleSwitch, searchQuery, setSearchQuery } = useAppContext(); 
+  const { isSwitchOn, toggleSwitch, searchQuery, setSearchQuery, cartItems } = useAppContext(); 
   const TopBarClass = isSwitchOn ? "TopBar-dark" : "TopBar";
   const [showUserPopup, setShowUserPopup] = useState(false);
 
   const toggleUserPopup = () => setShowUserPopup((prev) => !prev);
+
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleMenuClick = () => {
     const products = document.getElementById("ProductDiv");
@@ -57,9 +59,10 @@ function TopBar() {
       cartdiv.className = "cart2";
     }
   };
+  
   const handleUserpageClick = () => {
     const userpagediv = document.getElementById("userpageDiv");
-    userpagediv.className = isSwitchOn ? "userpagediv-dark": "userpagediv"
+    userpagediv.className = isSwitchOn ? "userpagediv-dark" : "userpagediv";
   };
 
   return (
@@ -75,7 +78,7 @@ function TopBar() {
             />
           </div>
 
-         {/* Minecraft-style Switch */}
+          {/* Minecraft-style Switch */}
           <label className="switch">
             <input
               type="checkbox"
@@ -112,29 +115,44 @@ function TopBar() {
           </div>
 
           <div className="icons">
-            <img
-              src={cart}
-              alt="Cart"
-              className="menuButtonImg highlightable"
-              onClick={handleCartClick}
-            />
-            <img
-              src={User}
-              alt="User"
-              className="menuButtonImg highlightable"
-              onClick={handleUserpageClick}
-            />
+            <div className="cartIconWrapper" onClick={handleCartClick} style={{ position: "relative", cursor: "pointer" }}>
+              <img
+                src={cart}
+                alt="Cart"
+                className="menuButtonImg highlightable"
+              />
+              {totalQuantity > 0 && (
+                <span className="cartCounter">{totalQuantity}</span>
+              )}
+            </div>
+
+            <div onClick={toggleUserPopup} style={{ cursor: "pointer" }}>
+              <img
+                src={User}
+                alt="User"
+                className="menuButtonImg highlightable"
+              />
+            </div>
           </div>
         </div>
-
-        <div className="bottomTB">
-          <div className="buttonTB">New</div>
-          <div className="buttonTB">Trending</div>
-          <div className="buttonTB">Fashion</div>
-          <div className="buttonTB">kys</div>
-          <div className="buttonTB">sybau</div>
-        </div>
       </div>
+
+      {showUserPopup && (
+        <div className={isSwitchOn ? "userpopup-dark" : "userpopup"}>
+          <div
+            className="userpopupItem"
+            onClick={() => {
+              handleUserpageClick();
+              setShowUserPopup(false);
+            }}
+          >
+            User Page
+          </div>
+          <div className="userpopupItem" onClick={() => setShowUserPopup(false)}>
+            Close
+          </div>
+        </div>
+      )}
     </div>
   );
 }
