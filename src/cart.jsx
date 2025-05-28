@@ -24,6 +24,12 @@ function Cart() {
         <div className="cartList">
           {cartItems.map((item) => (
             <div key={item.id} className="cartItem">
+              {/* Added image here */}
+              <img
+                src={item.images?.[0] || ""}
+                alt={item.title}
+                className="cartItemImage"
+              />
               <div className="itemInfo">
                 <p className="itemTitle">{item.title}</p>
                 <p className="itemPrice">${item.price.toFixed(2)}</p>
@@ -38,7 +44,10 @@ function Cart() {
                     updateQuantity(item.id, parseInt(e.target.value, 10))
                   }
                 />
-                <button className="removeBtn" onClick={() => removeFromCart(item.id)}>
+                <button
+                  className="removeBtn"
+                  onClick={() => removeFromCart(item.id)}
+                >
                   Remove
                 </button>
               </div>

@@ -7,13 +7,13 @@ import "./products.css";
 import { useAppContext } from "./AppContext";
 
 function Products() {
-  const productNum = 40;
+  const { searchQuery, isSwitchOn, ItemPerPage } = useAppContext();
+  const productNum = ItemPerPage;
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [products2, setProducts] = useState([]);
 
   const productDivRef = useRef(null);
-  const { searchQuery, isSwitchOn } = useAppContext();
 
   const ItemClass = isSwitchOn ? "item-dark" : "item";
   const LeftArrClass = isSwitchOn ? "leftarr-dark" : "leftarr";

@@ -55,6 +55,73 @@
   background-color: rgba(255, 255, 255, 0.65) ;
   transition: background-color 0.1s;
 }
+
+/* Base slider style */
+.PageSlider,
+.PageSlider-dark {
+  width: 90%;
+  height: 6px;
+  border-radius: 5px;
+  appearance: none;
+  margin: 10px auto;
+  display: block;
+  background: linear-gradient(to right, #4caf50 0%, #4caf50 50%, #ccc 50%, #ccc 100%);
+  transition: background 0.3s ease;
+  outline: none;
+}
+
+/* Custom thumb (WebKit) */
+.PageSlider::-webkit-slider-thumb,
+.PageSlider-dark::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.PageSlider::-webkit-slider-thumb:hover,
+.PageSlider-dark::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Custom thumb (Firefox) */
+.PageSlider::-moz-range-thumb,
+.PageSlider-dark::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.PageSlider::-moz-range-thumb:hover,
+.PageSlider-dark::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Dark mode fill and thumb style */
+.PageSlider-dark {
+  background: linear-gradient(to right, #81c784 0%, #81c784 50%, #666 50%, #666 100%);
+}
+
+.PageSlider-dark::-webkit-slider-thumb {
+  background: #222;
+  border: 2px solid #81c784;
+}
+
+.PageSlider-dark::-moz-range-thumb {
+  background: #222;
+  border: 2px solid #81c784;
+}
+
+
 @keyframes button-tilt {
   from {
     transform: rotate(-5deg);
