@@ -14,6 +14,7 @@ export function AppWrapper() {
   const [cartItems, setCartItems] = useState([]);
   const [ItemPerPage, SetItemsPerPage] = useState(40);
   const [selectedTag, setSelectedTag] = useState("");
+  const [sortOption, setSortOption] = useState("All");
 
   const toggleSwitch = () => setIsSwitchOn((prev) => !prev);
 
@@ -61,7 +62,9 @@ export function AppWrapper() {
         ItemPerPage,
         SetItemsPerPage,
         selectedTag,
-        setSelectedTag,  // <-- expose setter here
+        setSelectedTag,
+        sortOption, 
+        setSortOption,
       }}
     >
       <TopBar />

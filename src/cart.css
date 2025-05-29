@@ -111,6 +111,19 @@
   background-color: #fa8c16;
 }
 
+.BackArrowcart{
+  width: 50px;
+  position: absolute;
+  top:2.2%;
+  left: 6%;
+  transform: rotate(180deg);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.BackArrowcart:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .emptyMessage {
   text-align: center;
   color: #888;
@@ -120,5 +133,9 @@
   .cart2 {
     left: 0;
     width: 90%;
+  }
+  .BackArrowcart{
+    display: none;
+    user-select: none;
   }
 }

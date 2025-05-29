@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useAppContext } from "./AppContext";
 import "./cart.css"; // 👈 make sure you import the CSS file
+import arrow from "../images/arrow.png"
 
 function Cart() {
   const {
@@ -8,7 +9,19 @@ function Cart() {
     removeFromCart,
     updateQuantity,
     clearCart,
+    isSwitchOn,
   } = useAppContext();
+
+  const handleMenuClick = () => {
+    const products = document.getElementById("ProductDiv");
+    const cartdiv = document.getElementById("cartDiv");
+    const curproduct = document.getElementById("CurProductDiv");
+    if (products && cartdiv && curproduct) {
+      products.className = isSwitchOn ? "products-dark" : "products";
+      cartdiv.className = "cart";
+      curproduct.className = "CurProductClosed";
+    }
+  };
 
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -17,6 +30,7 @@ function Cart() {
 
   return (
     <div className="cart" id="cartDiv">
+      <img src={arrow} alt="" className="BackArrowcart" onClick={handleMenuClick}/>
       <h2>🛒 Shopping Cart</h2>
       {cartItems.length === 0 ? (
         <p className="emptyMessage">Your cart is empty.</p>

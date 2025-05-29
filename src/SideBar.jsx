@@ -8,9 +8,10 @@ function SideBar() {
     ItemPerPage, 
     SetItemsPerPage, 
     selectedTag, 
-    setSelectedTag 
+    setSelectedTag,
+    sortOption,
+    setSortOption
   } = useAppContext();
-
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -50,15 +51,15 @@ function SideBar() {
       <div className="main">
         <div className="top">
           {/* You can keep your static buttons or remove them if not needed */}
-          <div className={sidebarbuttonclass}>New</div>
+          <div className={sidebarbuttonclass}onClick={() => setSortOption("All")}>All</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>Trending</div>
+          <div className={sidebarbuttonclass}onClick={() => setSortOption("On Sale")}>On Sale</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>Fashion</div>
+          <div className={sidebarbuttonclass} onClick={() => setSortOption("From Cheapest")}>From Cheapest</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>kys</div>
+          <div className={sidebarbuttonclass}onClick={() => setSortOption("From Most Expensive")}>Most Expensive</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>sybau</div>
+          <div className={sidebarbuttonclass}onClick={() => setSortOption("Highest Rated")}>Highest Rated</div>
           <div className="line"></div>
         </div>
 

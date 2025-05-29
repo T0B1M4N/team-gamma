@@ -190,6 +190,19 @@
 .leftarr, .rightarr {
   transition: opacity 0.1s ease;
 }
+
+.rating {
+  font-size: 14px;
+  color: #ffb400; /* golden color for stars */
+  text-align: right;
+  margin-top: 10px;
+  font-weight: 600;
+  user-select: none;
+}
+.item-dark .rating {
+  color: #ffda6a;
+}
+
 @keyframes button-tilt {
   from {
     transform: rotate(-5deg);

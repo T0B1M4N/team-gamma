@@ -98,6 +98,7 @@
   margin: auto;
   text-align: center;
   font-weight: 700;
+  user-select: none;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -193,5 +194,12 @@
   .userButton {
     position: relative;
     cursor: pointer;
+  }
+  .cartCounter{
+    display: none;
+  }
+  .icons{
+    display: none;
+    user-select: none;
   }
 }

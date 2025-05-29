@@ -28,25 +28,30 @@
   height: 60%;
   margin-bottom: 20%;
 }
+.bottom *{
+  user-select: none;
+}
 .Sidebutton{
   width: 90%;
   transition: background-color 0.1s;
   margin: auto;
-  height: 10%;
+  height: 13.5%;
   text-align: center;
   color: black;
   font-size: 25px;
   border-radius: 10px;
+  user-select: none;
 }
 .Sidebutton-dark{
   width: 90%;
   transition: background-color 0.1s;
   margin: auto;
-  height: 10%;
+  height: 13.5%;
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
   font-size: 25px;
   border-radius: 10px;
+  user-select: none;
 }
 .line{
   width: 100%;
@@ -189,10 +194,10 @@
 }
 @media (max-width:1000px) {
   .Sidebutton{
-    font-size: 0px;
+    font-size: 0px !important;
   }
   .Sidebutton-dark{
-    font-size: 0px;
+    font-size: 0px !important;
   }
   .tag-container{
     display: none;
@@ -203,9 +208,15 @@
     font-size: 0px;
   }
 }
+@media (max-width:1300px) {
+  .Sidebutton,.Sidebutton-dark{
+    font-size: 19px;
+  }
+}
 @media (min-width: 1600px){
   .tag-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-content: flex-start;
   }
 }

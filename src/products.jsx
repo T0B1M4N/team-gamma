@@ -7,7 +7,7 @@ import "./products.css";
 import { useAppContext } from "./AppContext";
 
 function Products() {
-  const { searchQuery, selectedTag, isSwitchOn, ItemPerPage } = useAppContext();
+  const { searchQuery, selectedTag, isSwitchOn, ItemPerPage, sortOption } = useAppContext();
   const productNum = ItemPerPage;
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -39,11 +39,44 @@ function Products() {
     }
   }, [isSwitchOn]);
 
- const filteredProducts = products2.filter((p) => {
-  const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase());
-  const matchesTag = selectedTag === "" || p.tags?.some(tag => tag.toLowerCase() === selectedTag.toLowerCase());
-  return matchesSearch && matchesTag;
-});
+  // Helper function to render star rating
+ function renderStars(rating) {
+  const roundedRating = Math.round(rating * 2) / 2; // round to nearest 0.5
+  const fullStars = Math.floor(roundedRating);
+  const halfStar = roundedRating - fullStars === 0.5;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+  return (
+    <>
+      {"★".repeat(fullStars)}
+      {halfStar ? "½" : ""}
+      {"☆".repeat(emptyStars)}
+    </>
+  );
+}
+
+
+  let filteredProducts = products2.filter((p) => {
+    const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesTag = selectedTag === "" || p.tags?.some(tag => tag.toLowerCase() === selectedTag.toLowerCase());
+    return matchesSearch && matchesTag;
+  });
+
+  // Add sorting
+  filteredProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortOption) {
+      case "On Sale":
+        return b.discountPercentage - a.discountPercentage;
+      case "From Cheapest":
+        return a.price - b.price;
+      case "From Most Expensive":
+        return b.price - a.price;
+      case "Highest Rated":
+        return b.rating - a.rating;
+      default:
+        return 0; // "All" or unknown option = no sorting
+    }
+  });
 
   const visibleProducts = filteredProducts.slice(
     page * productNum,
@@ -70,11 +103,13 @@ function Products() {
 
   function handleLeftClick() {
     if (!loading && page > 0) setPage(page - 1);
+    scrollToTop(200);
   }
 
   function handleRightClick() {
     if (!loading && (page + 1) * productNum < filteredProducts.length) {
       setPage(page + 1);
+      scrollToTop(200);
     }
   }
 
@@ -136,6 +171,9 @@ function Products() {
                     <img className="discountImg" src={salePNG} alt="Sale" />
                   )}
                   <p className="price">{product.price}$</p>
+                  <p className="rating" title={`${product.rating} out of 5 stars`}>
+                    {renderStars(product.rating)} ({product.rating.toFixed(1)})
+                  </p>
                 </div>
               </div>
             );

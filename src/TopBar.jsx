@@ -28,17 +28,6 @@ function TopBar() {
 
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const handleMenuClick = () => {
-    const products = document.getElementById("ProductDiv");
-    const cartdiv = document.getElementById("cartDiv");
-    const curproduct = document.getElementById("CurProductDiv");
-    if (products && cartdiv && curproduct) {
-      products.className = isSwitchOn ? "products-dark" : "products";
-      cartdiv.className = "cart";
-      curproduct.className = "CurProductClosed";
-    }
-  };
-
   const handleCartClick = () => {
     const products = document.getElementById("ProductDiv");
     const cartdiv = document.getElementById("cartDiv");
@@ -69,14 +58,6 @@ function TopBar() {
     <div className={TopBarClass}>
       <div className="mobileDevider">
         <div className="topTB">
-          <div className="menuButton">
-            <img
-              src={menu}
-              alt="Menu"
-              className="menuButtonImg"
-              onClick={handleMenuClick}
-            />
-          </div>
 
           {/* Minecraft-style Switch */}
           <label className="switch">

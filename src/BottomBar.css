@@ -13,6 +13,7 @@
   flex-flow: column nowrap;
   height: 100%;
   padding-top: 10px;
+  cursor: pointer;
 }
 .iconsBB div img{
   display: block;

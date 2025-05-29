@@ -5,6 +5,7 @@ import "./CurrentProduct.css";
 import cart from "../images/cart-shopping-solid.svg";
 import box from "../images/box-open-solid.svg";
 import { useAppContext } from "./AppContext";
+import arrow from "../images/arrow.png"
 
 let externalSetProduct = null;
 
@@ -26,9 +27,23 @@ function renderStars(rating) {
 function CurProd() {
   const [product, setProduct] = useState(null);
   const { isSwitchOn, addToCart } = useAppContext();
+  const [addedToCart, setAddedToCart] = useState(false);
   const MainCStyle = isSwitchOn ? "mainCurDiv-dark" : "mainCurDiv";
   const stockstyle = isSwitchOn ? "Stock-dark" : "Stock";
   const prodIconstyle = isSwitchOn ? "productIcon-dark" : "productIcon";
+  const BAClass = isSwitchOn ? "BackArrow-dark" : "BackArrow";
+
+  const handleMenuClick = () => {
+    const products = document.getElementById("ProductDiv");
+    const cartdiv = document.getElementById("cartDiv");
+    const curproduct = document.getElementById("CurProductDiv");
+    if (products && cartdiv && curproduct) {
+      products.className = isSwitchOn ? "products-dark" : "products";
+      cartdiv.className = "cart";
+      curproduct.className = "CurProductClosed";
+    }
+  };
+
   useEffect(() => {
     externalSetProduct = setProduct;
     return () => {
@@ -74,8 +89,10 @@ function CurProd() {
     <div className="paddingDiv">
         <div className={MainCStyle}>
       <div className="imgTitleDesc">
+        <img src={arrow} alt="" className={BAClass} onClick={handleMenuClick}/>
         <div className={prodIconstyle}>
           <img src={images?.[0] || placeHolder} alt={title} />
+
         </div>
         <div className="TitleDesc">
           <h1>{title}</h1>
@@ -103,9 +120,21 @@ function CurProd() {
             ) : (
              <p className="CurPrice">${price.toFixed(2)},-</p>
             )}
-            <div className="AddToCart" onClick={() => addToCart(product)}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span className={`added-message ${addedToCart ? "visible" : ""}`}>
+                ✔ Added!
+              </span>
+              <div
+                className="AddToCart"
+                onClick={() => {
+                  addToCart(product);
+                  setAddedToCart(true);
+                  setTimeout(() => setAddedToCart(false), 1500);
+                }}
+              >
                 <img className="Icon" src={cart} alt=""/>
                 <p>Add to Cart</p>
+              </div>
             </div>
         </div>
       </div>

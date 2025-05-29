@@ -50,6 +50,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   border-radius: 20%; /* perfect circle */
   overflow: hidden; /* clip image inside circle */
+  margin-top: 150px;
 }
 .productIcon-dark{
   flex: 0 0 40%; /* fixed 40% width, no grow/shrink */
@@ -60,10 +61,29 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   border-radius: 20%; /* perfect circle */
   overflow: hidden;
+  margin-top: 150px;
 }
 .imgTitleDesc p{
     height: 5px;
     color: black;
+}
+.BackArrow,.BackArrow-dark{
+  width: 50px;
+  position: absolute;
+  top:2.5%;
+  left: 6%;
+  transform: rotate(180deg);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.BackArrow-dark{
+  filter: invert();
+}
+.BackArrow:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.BackArrow-dark:hover{
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .productIcon img {
   object-fit: cover;
@@ -99,6 +119,28 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 .Desc{
     height: max-content !important;
 }
+@keyframes flickerFade {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  40% { opacity: 0.6; }
+  60% { opacity: 1; }
+  80% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+.added-message {
+  color: green;
+  font-weight: bold;
+  width: 80px;
+  display: inline-block;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.added-message.visible {
+  animation: flickerFade 1.2s ease-in-out;
+}
+
 .Icon{
     width: 7%;
     filter: invert();
@@ -223,7 +265,16 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     box-shadow: none;
     color: #000;
   }
+  .BackArrow{
+    top: 1.5%;
+  }
   .productIcon {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 1rem auto;
+    border-radius: 12px; /* slightly rounded rect on small screens */
+  }
+  .productIcon-dark {
     width: 80%;
     aspect-ratio: 1 / 1;
     margin: 0 auto 1rem auto;

@@ -104,7 +104,7 @@ button:focus-visible {
   height: 90vh;
   margin-top: 10vh;
   position: fixed;
-  background: linear-gradient(0deg, rgb(96, 96, 163)0% , rgb(121, 61, 61))100% ;
+  background: linear-gradient(rgba(120, 41, 64, 1) 0%, rgba(40, 51, 52, 1) 10%, rgba(40, 51, 52, 1) 90%, rgba(35, 95, 130, 1) 100%);
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   z-index: 19;
 }
@@ -132,7 +132,7 @@ button:focus-visible {
   max-height: 2000vh;
   padding-top: 150px;
   margin-left: 15%;
-  background:linear-gradient(rgb(122, 122, 122) 0%,#3C4748 100%);
+  background:linear-gradient(rgb(83, 83, 83) 0%,#3C4748 100%);
   background-size:cover;
   background-attachment: fixed;
   background-color: #3C4748;
@@ -296,14 +296,16 @@ button:focus-visible {
   }
   .CurProductOpen{
     width: 100%;
-    margin-left: 0;
+    left: 0;
     top: 150px;
     z-index: 2;
+    margin-left: 0;
   }
   .CurProductOpen-dark{
    width: 100%;
-    margin-left: 0;
+    left: 0;
     top: 150px;
     z-index: 2;
+    margin-left: 0;
   }
 }
