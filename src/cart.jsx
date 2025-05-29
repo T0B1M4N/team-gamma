@@ -2,6 +2,7 @@ import React from "react";
 import { useAppContext } from "./AppContext";
 import "./cart.css"; // 👈 make sure you import the CSS file
 
+
 function Cart() {
   const {
     cartItems,

@@ -6,8 +6,9 @@ import { loadProducts } from "./ProductData";
 import "./products.css";
 import { useAppContext } from "./AppContext";
 
+
 function Products() {
-  const { searchQuery, isSwitchOn, ItemPerPage } = useAppContext();
+  const { searchQuery, selectedTag, isSwitchOn, ItemPerPage } = useAppContext();
   const productNum = ItemPerPage;
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -31,18 +32,19 @@ function Products() {
     fetchData();
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     const el = productDivRef.current;
     if (!el) return;
-
     if (el.className !== "products2" && el.className !== "products2-dark") {
       el.className = isSwitchOn ? "products-dark" : "products";
     }
   }, [isSwitchOn]);
 
-  const filteredProducts = products2.filter((p) =>
-    p.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+ const filteredProducts = products2.filter((p) => {
+  const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase());
+  const matchesTag = selectedTag === "" || p.tags?.some(tag => tag.toLowerCase() === selectedTag.toLowerCase());
+  return matchesSearch && matchesTag;
+});
 
   const visibleProducts = filteredProducts.slice(
     page * productNum,

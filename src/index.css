@@ -104,7 +104,7 @@ button:focus-visible {
   height: 90vh;
   margin-top: 10vh;
   position: fixed;
-  background: linear-gradient(0deg, rgb(164, 164, 235)0% , rgb(107, 44, 44))100% ;
+  background: linear-gradient(0deg, rgb(96, 96, 163)0% , rgb(121, 61, 61))100% ;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   z-index: 19;
 }
@@ -269,6 +269,9 @@ button:focus-visible {
 
 @media (max-width:1000px) {
   .SideBar{
+    width: 0;
+  }
+  .SideBar-dark{
     width: 0;
   }
   .products{

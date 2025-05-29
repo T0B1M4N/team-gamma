@@ -2,21 +2,26 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+    cursor: pointer;
+
 }
 
 .menuButton {
   flex: 0 1 100px;    /* fixed-ish base width, can shrink */
   min-width: 0;
+  cursor: pointer;
 }
 
 .menuButtonImg {
   max-height: 100%;
   object-fit: contain;
+  cursor: pointer;
 }
 
 .mobileDevider {
   width: 100%;
   height: 100%;
+
 }
 
 .topTB {
@@ -26,6 +31,7 @@
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .bottomTB {
@@ -44,11 +50,14 @@
   padding-top: 25px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .searchIcon {
   width: 50px;
   height: 50px;
+    cursor: pointer;
+
 }
 
 .searchbox {
@@ -62,6 +71,7 @@
   text-indent: 20px;
   border: 0;
   box-shadow: 0px 0px 5px black;
+  cursor: pointer;
 }
 
 .icons {
@@ -71,6 +81,7 @@
   justify-content: space-around;
   align-items: center;
   padding-right: 2.5%;
+  cursor: pointer;
 }
 
 .icons p {
@@ -78,15 +89,22 @@
   font-weight: 600;
   font-size: 20px;
   text-align: right;
+    cursor: pointer;
+
 }
 
 .icons img {
   height: 35px;
   padding: 20px;
+    cursor: pointer;
+
+
 }
 
 .menuButtonImg:hover {
   background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
 }
 
 .Name {
@@ -99,6 +117,7 @@
   text-align: center;
   font-weight: 700;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  cursor: pointer;
 }
 
 .cartIconWrapper {
@@ -168,6 +187,8 @@
     justify-content: flex-start;
     gap: 10px;
     padding-left: 30px;
+    cursor: pointer;
+
   }
   .buttonTB {
     min-width: 70px;
@@ -180,11 +201,14 @@
     text-indent: 10px;
     box-shadow: 0px 0px 0px rgba(226, 226, 226, 1);
     border-radius: 30px;
+    cursor: pointer;
   }
   .buttonTB:active {
     background-color: black;
     color: white;
     transition: background-color 0.1s, color 0.2s;
+    cursor: pointer;
+
   }
   .searchbar{
     flex: 1 1 200px; 

@@ -13,6 +13,7 @@ export function AppWrapper() {
   const [searchQuery, setSearchQuery] = useState("");
   const [cartItems, setCartItems] = useState([]);
   const [ItemPerPage, SetItemsPerPage] = useState(40);
+  const [selectedTag, setSelectedTag] = useState("");
 
   const toggleSwitch = () => setIsSwitchOn((prev) => !prev);
 
@@ -58,7 +59,9 @@ export function AppWrapper() {
         updateQuantity,
         clearCart,
         ItemPerPage,
-        SetItemsPerPage, // <-- Add this!
+        SetItemsPerPage,
+        selectedTag,
+        setSelectedTag,  // <-- expose setter here
       }}
     >
       <TopBar />
