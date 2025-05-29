@@ -27,6 +27,7 @@
   border-radius: 20px;
   height: 60%;
   margin-bottom: 20%;
+  overflow: hidden;
 }
 .Sidebutton{
   width: 90%;
