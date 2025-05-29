@@ -3,6 +3,7 @@ import { useAppContext } from "./AppContext";
 import "./cart.css"; // 👈 make sure you import the CSS file
 import arrow from "../images/arrow.png"
 
+
 function Cart() {
   const {
     cartItems,

@@ -39,15 +39,6 @@ function TopBar() {
       scrollToTop(250);
     }
   };
-
-  const handleUserClick = () => {
-    const products = document.getElementById("ProductDiv");
-    const cartdiv = document.getElementById("cartDiv");
-    if (products && cartdiv) {
-      products.className = isSwitchOn ? "products2-dark" : "products2";
-      cartdiv.className = "cart2";
-    }
-  };
   
   const handleUserpageClick = () => {
     const userpagediv = document.getElementById("userpageDiv");

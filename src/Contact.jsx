@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useAppContext } from "./AppContext";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -29,7 +30,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6">
+    <div className="contactDiv">
       <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -71,3 +72,8 @@ export default function Contact() {
     </div>
   );
 }
+
+// const handleContactClick = () => {
+//  const contactdiv = document.getElementById("contactDiv");
+//  contactdiv.className = isSwitchOn ? "contactdiv-dark" : "contactdiv";
+//};
