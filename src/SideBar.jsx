@@ -11,15 +11,15 @@ function SideBar() {
     <div className={sidebarclass}>
       <div className="main">
         <div className="top">
-          <div className={sidebarbuttonclass}>New</div>
+          <div className={sidebarbuttonclass} style={{cursor: "pointer"}}>New</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>Trending</div>
+          <div className={sidebarbuttonclass} style={{cursor: "pointer"}}>Trending</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>Fashion</div>
+          <div className={sidebarbuttonclass} style={{cursor: "pointer"}}>Fashion</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>kys</div>
+          <div className={sidebarbuttonclass} style={{cursor: "pointer"}}>kys</div>
           <div className="line"></div>
-          <div className={sidebarbuttonclass}>sybau</div>
+          <div className={sidebarbuttonclass} style={{cursor: "pointer"}}>sybau</div>
           <div className="line"></div>
         </div>
 
