@@ -105,7 +105,7 @@ function CurProd() {
             )}
             <div className="AddToCart" onClick={() => addToCart(product)}>
                 <img className="Icon" src={cart} alt=""/>
-                Add to Cart
+                <p>Add to Cart</p>
             </div>
         </div>
       </div>
