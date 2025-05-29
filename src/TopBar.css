@@ -2,7 +2,6 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
-    cursor: pointer;
 
 }
 
@@ -31,7 +30,6 @@
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-around;
-  cursor: pointer;
 }
 
 .bottomTB {
@@ -50,13 +48,11 @@
   padding-top: 25px;
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 .searchIcon {
   width: 50px;
   height: 50px;
-    cursor: pointer;
 
 }
 
@@ -71,7 +67,6 @@
   text-indent: 20px;
   border: 0;
   box-shadow: 0px 0px 5px black;
-  cursor: pointer;
 }
 
 .icons {
@@ -81,7 +76,6 @@
   justify-content: space-around;
   align-items: center;
   padding-right: 2.5%;
-  cursor: pointer;
 }
 
 .icons p {
@@ -89,7 +83,6 @@
   font-weight: 600;
   font-size: 20px;
   text-align: right;
-    cursor: pointer;
 
 }
 
@@ -103,7 +96,6 @@
 
 .menuButtonImg:hover {
   background-color: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
 
 }
 
@@ -118,7 +110,6 @@
   font-weight: 700;
   user-select: none;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  cursor: pointer;
 }
 
 .cartIconWrapper {
@@ -188,7 +179,6 @@
     justify-content: flex-start;
     gap: 10px;
     padding-left: 30px;
-    cursor: pointer;
 
   }
   .buttonTB {
@@ -202,13 +192,11 @@
     text-indent: 10px;
     box-shadow: 0px 0px 0px rgba(226, 226, 226, 1);
     border-radius: 30px;
-    cursor: pointer;
   }
   .buttonTB:active {
     background-color: black;
     color: white;
     transition: background-color 0.1s, color 0.2s;
-    cursor: pointer;
 
   }
   .searchbar{
@@ -226,4 +214,66 @@
     display: none;
     user-select: none;
   }
+}
+
+
+
+
+.user-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.user-popup,.user-popup-dark {
+  position: absolute;
+  top: 95%; /* appears just below the icon */
+  right: 0;
+  width: 160px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.user-popup-dark {
+  background: #333 !important;
+  border-color: #555 !important;
+  color: white !important;
+}
+
+.user-popup ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.user-popup li {
+  border-bottom: 1px solid #ddd;
+}
+
+.user-popup li:last-child {
+  border-bottom: none;
+}
+
+.user-popup button,.user-popup-dark button {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+}
+.user-popup-dark  button{
+  color: white !important;
+}
+
+.user-popup button:hover {
+  background-color: #f0f0f0;
+}
+
+.user-popup-dark button:hover {
+  background-color: #444;
 }

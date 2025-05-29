@@ -78,7 +78,7 @@ button:focus-visible {
   position: fixed;
   height: 100px;
   width: 100%;
-  background-color: #3C4748;
+  background: linear-gradient(#3C4748 0%,#3C4748 90%,#818181 100%);
   transition: background-color 0.5s;
   box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
   color: rgb(255, 255, 255);
@@ -105,7 +105,7 @@ button:focus-visible {
   margin-top: 10vh;
   position: fixed;
   background: linear-gradient(rgba(120, 41, 64, 1) 0%, rgba(40, 51, 52, 1) 10%, rgba(40, 51, 52, 1) 90%, rgba(35, 95, 130, 1) 100%);
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5),inset 0px 0px 5px rgba(255,255,255,0.5);
   z-index: 19;
 }
 .products{

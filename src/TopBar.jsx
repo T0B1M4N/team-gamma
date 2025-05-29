@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import cart from "../images/cart-shopping-solid.svg";
 import User from "../images/user-regular.svg";
 import menu from "../images/menu.png";
@@ -24,7 +24,24 @@ function TopBar() {
   const TopBarClass = isSwitchOn ? "TopBar-dark" : "TopBar";
   const [showUserPopup, setShowUserPopup] = useState(false);
 
-  const toggleUserPopup = () => setShowUserPopup((prev) => !prev);
+  const openUserPopup = () => {
+  if (!showUserPopup) {
+    setShowUserPopup(true);
+  }
+};
+
+  
+  const popupRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setShowUserPopup(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -73,7 +90,7 @@ function TopBar() {
             />
           </label>
 
-          <div className="Name">Store Name</div>
+          <div className="Name">Gamma Store</div>
 
           <div className="searchbar">
             <img className="searchIcon" src={searchicon} alt="Search" />
@@ -98,34 +115,24 @@ function TopBar() {
               )}
             </div>
 
-            <div onClick={toggleUserPopup} style={{ cursor: "pointer" }}>
+            <div onClick={openUserPopup} style={{ cursor: "pointer" }}>
               <img
                 src={User}
                 alt="User"
                 className="menuButtonImg highlightable"
               />
+              {showUserPopup && (
+                <div ref={popupRef} className={`user-popup ${isSwitchOn ? "user-popup-dark" : ""}`}>
+                  <ul>
+                    <li><button onClick={() => alert("Profile")}>Profile</button></li>
+                    <li><button onClick={() => alert("Logout")}>Logout</button></li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
-
-      {showUserPopup && (
-        <div className={isSwitchOn ? "userpopup-dark" : "userpopup"}>
-          <div
-            className="userpopupItem" highlightable style={{ cursor: "pointer" }}
-            onClick={() => {
-              handleUserpageClick();
-              setShowUserPopup(false);
-            }}
-          >
-            User Page
-          </div>
-          <div className="userpopupItem" highlightable style={{ cursor: "pointer" }}
-          onClick={() => setShowUserPopup(false)}>
-            Close
-          </div>
-        </div>
-      )}
     </div>
   );
 }
