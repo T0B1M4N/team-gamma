@@ -3,7 +3,7 @@ let productsData = [];
 export async function loadProducts() {
   if (productsData.length) return productsData; // cache hit
 
-  const response = await fetch("https://dummyjson.com/products?limit=200");
+  const response = await fetch("https://dummyjson.com/products?limit=1000");
   const json = await response.json();
   productsData = json.products;
   return productsData;

@@ -140,7 +140,7 @@ function TopBar() {
       {showUserPopup && (
         <div className={isSwitchOn ? "userpopup-dark" : "userpopup"}>
           <div
-            className="userpopupItem"
+            className="userpopupItem" highlightable style={{ cursor: "pointer" }}
             onClick={() => {
               handleUserpageClick();
               setShowUserPopup(false);
@@ -148,7 +148,8 @@ function TopBar() {
           >
             User Page
           </div>
-          <div className="userpopupItem" onClick={() => setShowUserPopup(false)}>
+          <div className="userpopupItem" highlightable style={{ cursor: "pointer" }}
+          onClick={() => setShowUserPopup(false)}>
             Close
           </div>
         </div>
