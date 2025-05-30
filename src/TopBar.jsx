@@ -125,7 +125,7 @@ function TopBar() {
                 <div ref={popupRef} className={`user-popup ${isSwitchOn ? "user-popup-dark" : ""}`}>
                   <ul>
                     <li><button onClick={() => alert("Profile")}>Profile</button></li>
-                    <li><button onClick={() => alert("Logout")}>Logout</button></li>
+                    <li><button onClick={() => alert("Logging out..")}>Logout</button></li>
                   </ul>
                 </div>
               )}

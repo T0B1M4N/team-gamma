@@ -169,18 +169,6 @@
   .Name {
     order: 2;
   }
-  .topTB {
-    height: 66%;
-  }
-  .bottomTB {
-    height: 34%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    gap: 10px;
-    padding-left: 30px;
-
-  }
   .buttonTB {
     min-width: 70px;
     max-width: 120px;
@@ -276,4 +264,18 @@
 
 .user-popup-dark button:hover {
   background-color: #444;
+}
+@media (max-width:600px) {
+  .Name{
+    order: 1;
+    min-width: 60%;
+  }
+  .searchbar{
+    order: 2;
+    max-height: 35%;
+    max-width: 85%;
+  }
+  .topTB{
+    flex-wrap: wrap;
+  }
 }

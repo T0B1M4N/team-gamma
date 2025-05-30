@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./BottomBar.css";
 import profile from "../images/profile.png";
 import cart from "../images/cart-shopping-solid.svg";
@@ -24,6 +24,8 @@ function BottomBar() {
   const { isSwitchOn } = useAppContext();
   const [showPopup, setShowPopup] = useState(false);
   const [tags, setTags] = useState([]);
+  const [showBottomPopup, setShowBottomPopup] = useState(false);
+  const bottomPopupRef = useRef(null);
 
   const handleMenuClick = () => {
     const products = document.getElementById("ProductDiv");
@@ -36,18 +38,6 @@ function BottomBar() {
     }
   };
 
-  useEffect(() => {
-    fetch('https://dummyjson.com/products')
-      .then((res) => res.json())
-      .then((data) => {
-        const allTags = [...new Set(data.products.flatMap(p => p.tags || []))];
-        setTags(allTags);
-      })
-      .catch(err => console.error("Error loading tags:", err));
-  }, []);
-
-  const bottomBarClass = isSwitchOn ? "BottomBar-dark" : "BottomBar";
-
   const handleCartClick = () => {
     const products = document.getElementById("ProductDiv");
     const cartdiv = document.getElementById("cartDiv");
@@ -59,6 +49,34 @@ function BottomBar() {
       scrollToTop(250);
     }
   };
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        const allTags = [...new Set(data.products.flatMap((p) => p.tags || []))];
+        setTags(allTags);
+      })
+      .catch((err) => console.error("Error loading tags:", err));
+  }, []);
+
+  // Close bottom popup on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        bottomPopupRef.current &&
+        !bottomPopupRef.current.contains(event.target)
+      ) {
+        setShowBottomPopup(false);
+      }
+    };
+    if (showBottomPopup) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showBottomPopup]);
+
+  const bottomBarClass = isSwitchOn ? "BottomBar-dark" : "BottomBar";
 
   return (
     <>
@@ -73,17 +91,37 @@ function BottomBar() {
             <p>Categories</p>
           </div>
           <div>
-            <img
-              src={cart}
-              alt="Cart"
-              onClick={handleCartClick}
-            />
+            <img src={cart} alt="Cart" onClick={handleCartClick} />
             <p>Cart</p>
           </div>
           <div>
-            <img src={User} alt="Me" />
+            <img
+              src={User}
+              alt="Me"
+              onClick={() => setShowBottomPopup((prev) => !prev)}
+            />
             <p>Me</p>
           </div>
+
+          {showBottomPopup && (
+            <div
+              className="bottom-popup-container-2"
+              ref={bottomPopupRef}
+            >
+              <div
+                className={isSwitchOn ? "bottom-popup-dark-2" : "bottom-popup-2"}
+              >
+                <ul>
+                  <li>
+                    <button onClick={() => alert("Profile")}>Profile</button>
+                  </li>
+                  <li>
+                    <button onClick={() => alert("Logging out..")}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
