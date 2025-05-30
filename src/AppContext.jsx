@@ -5,6 +5,7 @@ import Products from "./products.jsx";
 import Cart from "./cart.jsx";
 import CurProduct from "./CurrentProduct.jsx";
 import BottomBar from "./BottomBar.jsx";
+import WelcomePopup from "./components/welpop.jsx";
 
 const AppContext = createContext();
 
@@ -67,6 +68,7 @@ export function AppWrapper() {
         setSortOption,
       }}
     >
+      <WelcomePopup />
       <TopBar />
       <SideBar />
       <Products />
